@@ -8,5 +8,6 @@
 import UIKit
 
 protocol UISearchListViewRouter {
-    func loadDetailViewController(id: Int) -> UIViewController
+    func makeListViewController(interactor: UISearchListViewInteractor) -> UIViewController
+    func makeDetailViewController(id: Int) -> UIViewController
 }

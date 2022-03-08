@@ -6,5 +6,5 @@
 //
 
 protocol ListingService {
-    func getList<T>(keywords: String?, completion: @escaping ([T], Error?) -> ())
+    func getList<T>(keywords: String?, start: Int, limit: Int, completion: @escaping ([T], Error?) -> ())
 }
