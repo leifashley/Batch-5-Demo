@@ -46,7 +46,7 @@ class Batch_5_DemoTests: XCTestCase {
     func testNewsItemLongMarch() throws {
         let expectation = expectation(description: "apiNewsItem")
         let id = 14173
-        let handle = NewsListItemService().getItem(id: id, errorPlaceHolder: NewsItemModel()) { item in
+        let handle = NewsListItemService().getItem(id: id, placeholder: NewsItemModel()) { item in
             XCTAssertEqual(item.id, id)
             expectation.fulfill()
             print(item)

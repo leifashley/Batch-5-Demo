@@ -11,5 +11,6 @@ import Foundation
 enum Exception: Error {
     case invalidURL
     case invalidResponse
+    case invalidDateFormat
 }
 

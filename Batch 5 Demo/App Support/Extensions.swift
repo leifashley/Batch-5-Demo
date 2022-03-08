@@ -24,3 +24,25 @@ extension UIColor {
         self.init(webColorCode: color)
     }
 }
+
+extension Date {
+    static func iso8601Adaptive(_ decoder: Decoder) throws -> Date {
+            let formats = [
+                "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZZZZZ",
+                "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
+                "yyyy-MM-dd'T'HH:mm:ss",
+                "yyyy-MM-dd HH:mm:ss",
+                "yyyy-M-d H:m:s"
+            ]
+            let container = try decoder.singleValueContainer()
+            let dateStr = try container.decode(String.self)
+            let fmt = DateFormatter()
+            for format in formats {
+                fmt.dateFormat = format
+                if let dt = fmt.date(from: dateStr) {
+                    return dt
+                }
+            }
+            throw Exception.invalidDateFormat
+        }
+}

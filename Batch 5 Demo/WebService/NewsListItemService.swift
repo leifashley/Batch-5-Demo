@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 
+
 class NewsListItemService: ListItemService {
     let session: URLSession
     let io: DispatchQueue
@@ -20,25 +21,12 @@ class NewsListItemService: ListItemService {
             return nil
         }
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        return session.dataTaskPublisher(for: url)
-            .tryMap { response in
-                if let text = String(data: response.data, encoding: .utf8) {
-                    print(text)
-                }
-                return response.data
-            }
-            .decode(type: [T].self, decoder: decoder)
-            .replaceError(with: placeholder)
-            .receive(on: self.io)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    NSLog("completed: apiNewsListItem")
-                case .failure:
-                    NSLog("failed: apiNewsListItem")
-                }
-            }, receiveValue: completion)
+        decoder.dateDecodingStrategy = .custom(Date.iso8601Adaptive)
+        return session.dataTaskPublisher(for: url).tryMap { $0.data }
+        .decode(type: T.self, decoder: decoder)
+        .replaceError(with: placeholder)
+        .receive(on: io)
+        .sink(receiveValue: completion)
     }
     static let shared = NewsListItemService()
 }

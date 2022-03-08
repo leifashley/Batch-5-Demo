@@ -21,7 +21,7 @@ struct NewsItemModel: Codable {
     let events: [Int]
     init(id i: Int = -1, title t: String = "", url u: String = "",
          imageUrl img: String = "", newsSite n: String = "", summary s: String = "",
-         publishedAt pat: Date = .now, updatedAt uat: Date = .now, featured f: Bool = false,
+         publishedAt pat: Date = Date(), updatedAt uat: Date = Date(), featured f: Bool = false,
          launches l: [Int] = [], events e: [Int] = []) {
         id = i; title = t; url = u
         imageUrl = img; newsSite = n; summary = s
