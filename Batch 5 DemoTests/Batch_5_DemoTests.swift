@@ -43,6 +43,17 @@ class Batch_5_DemoTests: XCTestCase {
         handle?.cancel()
     }
     
+    func testNewsItemLongMarch() throws {
+        let expectation = expectation(description: "apiNewsItem")
+        let id = 14173
+        let handle = NewsListItemService().getItem(id: id, errorPlaceHolder: NewsItemModel()) { item in
+            XCTAssertEqual(item.id, id)
+            expectation.fulfill()
+            print(item)
+        }
+        wait(for: [expectation], timeout: 5)
+        handle?.cancel()
+    }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

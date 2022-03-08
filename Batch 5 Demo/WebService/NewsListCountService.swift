@@ -33,4 +33,5 @@ class NewsListCountService: ListCountService {
                 }
             }, receiveValue: completion)
     }
+    static let shared = NewsListCountService()
 }

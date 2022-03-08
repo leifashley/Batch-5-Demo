@@ -16,6 +16,8 @@
 		3102F8F627D7B15600226B60 /* ListCountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8F327D7B15600226B60 /* ListCountService.swift */; };
 		3102F8F827D7C4E500226B60 /* NewsListCountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8F727D7C4E500226B60 /* NewsListCountService.swift */; };
 		3102F8FA27D7DEC200226B60 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8F927D7DEC200226B60 /* Exception.swift */; };
+		3102F8FC27D7F53F00226B60 /* NewsListItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8FB27D7F53F00226B60 /* NewsListItemService.swift */; };
+		3102F8FF27D7F8F400226B60 /* NewsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8FE27D7F8F400226B60 /* NewsItemModel.swift */; };
 		935623FF27D6951F00714EA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935623FE27D6951F00714EA0 /* AppDelegate.swift */; };
 		9356240127D6951F00714EA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356240027D6951F00714EA0 /* SceneDelegate.swift */; };
 		9356240327D6951F00714EA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356240227D6951F00714EA0 /* ViewController.swift */; };
@@ -57,6 +59,8 @@
 		3102F8F327D7B15600226B60 /* ListCountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCountService.swift; sourceTree = "<group>"; };
 		3102F8F727D7C4E500226B60 /* NewsListCountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListCountService.swift; sourceTree = "<group>"; };
 		3102F8F927D7DEC200226B60 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
+		3102F8FB27D7F53F00226B60 /* NewsListItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListItemService.swift; sourceTree = "<group>"; };
+		3102F8FE27D7F8F400226B60 /* NewsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemModel.swift; sourceTree = "<group>"; };
 		935623FB27D6951F00714EA0 /* Batch 5 Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Batch 5 Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		935623FE27D6951F00714EA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9356240027D6951F00714EA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +123,17 @@
 				3102F8F227D7B15600226B60 /* ListItemService.swift */,
 				3102F8F327D7B15600226B60 /* ListCountService.swift */,
 				3102F8F727D7C4E500226B60 /* NewsListCountService.swift */,
+				3102F8FB27D7F53F00226B60 /* NewsListItemService.swift */,
 			);
 			path = WebService;
+			sourceTree = "<group>";
+		};
+		3102F8FD27D7F8D700226B60 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3102F8FE27D7F8F400226B60 /* NewsItemModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		935623F227D6951F00714EA0 = {
@@ -146,6 +159,7 @@
 		935623FD27D6951F00714EA0 /* Batch 5 Demo */ = {
 			isa = PBXGroup;
 			children = (
+				3102F8FD27D7F8D700226B60 /* Models */,
 				9356243027D6956500714EA0 /* App Support */,
 				3102F8F027D7B15600226B60 /* WebService */,
 				9356242F27D6955D00714EA0 /* Views */,
@@ -346,7 +360,9 @@
 				3102F8F427D7B15600226B60 /* ListingService.swift in Sources */,
 				935623FF27D6951F00714EA0 /* AppDelegate.swift in Sources */,
 				3102F8ED27D7B12F00226B60 /* UISearchListViewController.swift in Sources */,
+				3102F8FF27D7F8F400226B60 /* NewsItemModel.swift in Sources */,
 				9356243627D7ABFC00714EA0 /* Resources.swift in Sources */,
+				3102F8FC27D7F53F00226B60 /* NewsListItemService.swift in Sources */,
 				9356240127D6951F00714EA0 /* SceneDelegate.swift in Sources */,
 				9356243327D6959B00714EA0 /* Constants.swift in Sources */,
 			);

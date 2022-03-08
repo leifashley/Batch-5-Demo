@@ -5,6 +5,7 @@
 //  Created by Rockford Wei on 2022-03-08.
 //
 
+import Combine
 protocol ListingService {
-    func getList<T>(keywords: String?, start: Int, limit: Int, completion: @escaping ([T], Error?) -> ())
+    func getList<T>(keywords: String?, start: Int, limit: Int, completion: @escaping ([T], Error?) -> ()) -> AnyCancellable?
 }
