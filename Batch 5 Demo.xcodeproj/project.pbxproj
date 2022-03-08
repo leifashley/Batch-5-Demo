@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3102F8EC27D7B12F00226B60 /* UISearchListViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8E827D7B12F00226B60 /* UISearchListViewInteractor.swift */; };
+		3102F8ED27D7B12F00226B60 /* UISearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8E927D7B12F00226B60 /* UISearchListViewController.swift */; };
+		3102F8EE27D7B12F00226B60 /* UISearchListViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8EA27D7B12F00226B60 /* UISearchListViewRouter.swift */; };
+		3102F8EF27D7B12F00226B60 /* UISearchListViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8EB27D7B12F00226B60 /* UISearchListViewPresenter.swift */; };
+		3102F8F427D7B15600226B60 /* ListingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8F127D7B15600226B60 /* ListingService.swift */; };
+		3102F8F527D7B15600226B60 /* ListItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8F227D7B15600226B60 /* ListItemService.swift */; };
+		3102F8F627D7B15600226B60 /* ListCountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8F327D7B15600226B60 /* ListCountService.swift */; };
 		935623FF27D6951F00714EA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935623FE27D6951F00714EA0 /* AppDelegate.swift */; };
 		9356240127D6951F00714EA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356240027D6951F00714EA0 /* SceneDelegate.swift */; };
 		9356240327D6951F00714EA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356240227D6951F00714EA0 /* ViewController.swift */; };
@@ -39,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3102F8E827D7B12F00226B60 /* UISearchListViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewInteractor.swift; sourceTree = "<group>"; };
+		3102F8E927D7B12F00226B60 /* UISearchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewController.swift; sourceTree = "<group>"; };
+		3102F8EA27D7B12F00226B60 /* UISearchListViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewRouter.swift; sourceTree = "<group>"; };
+		3102F8EB27D7B12F00226B60 /* UISearchListViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewPresenter.swift; sourceTree = "<group>"; };
+		3102F8F127D7B15600226B60 /* ListingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingService.swift; sourceTree = "<group>"; };
+		3102F8F227D7B15600226B60 /* ListItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemService.swift; sourceTree = "<group>"; };
+		3102F8F327D7B15600226B60 /* ListCountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCountService.swift; sourceTree = "<group>"; };
 		935623FB27D6951F00714EA0 /* Batch 5 Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Batch 5 Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		935623FE27D6951F00714EA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9356240027D6951F00714EA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +96,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3102F8E727D7B12F00226B60 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				3102F8E827D7B12F00226B60 /* UISearchListViewInteractor.swift */,
+				3102F8E927D7B12F00226B60 /* UISearchListViewController.swift */,
+				3102F8EA27D7B12F00226B60 /* UISearchListViewRouter.swift */,
+				3102F8EB27D7B12F00226B60 /* UISearchListViewPresenter.swift */,
+			);
+			path = ListView;
+			sourceTree = "<group>";
+		};
+		3102F8F027D7B15600226B60 /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				3102F8F127D7B15600226B60 /* ListingService.swift */,
+				3102F8F227D7B15600226B60 /* ListItemService.swift */,
+				3102F8F327D7B15600226B60 /* ListCountService.swift */,
+			);
+			path = WebService;
+			sourceTree = "<group>";
+		};
 		935623F227D6951F00714EA0 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				9356243027D6956500714EA0 /* App Support */,
+				3102F8F027D7B15600226B60 /* WebService */,
 				9356242F27D6955D00714EA0 /* Views */,
 			);
 			path = "Batch 5 Demo";
@@ -139,6 +175,7 @@
 		9356242F27D6955D00714EA0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3102F8E727D7B12F00226B60 /* ListView */,
 				9356240927D6952200714EA0 /* LaunchScreen.storyboard */,
 				9356240427D6951F00714EA0 /* Main.storyboard */,
 				9356242E27D6953C00714EA0 /* Main View */,
@@ -291,9 +328,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3102F8F627D7B15600226B60 /* ListCountService.swift in Sources */,
+				3102F8F527D7B15600226B60 /* ListItemService.swift in Sources */,
+				3102F8EC27D7B12F00226B60 /* UISearchListViewInteractor.swift in Sources */,
 				9356243427D6959B00714EA0 /* Extensions.swift in Sources */,
 				9356240327D6951F00714EA0 /* ViewController.swift in Sources */,
+				3102F8EF27D7B12F00226B60 /* UISearchListViewPresenter.swift in Sources */,
+				3102F8EE27D7B12F00226B60 /* UISearchListViewRouter.swift in Sources */,
+				3102F8F427D7B15600226B60 /* ListingService.swift in Sources */,
 				935623FF27D6951F00714EA0 /* AppDelegate.swift in Sources */,
+				3102F8ED27D7B12F00226B60 /* UISearchListViewController.swift in Sources */,
 				9356243627D7ABFC00714EA0 /* Resources.swift in Sources */,
 				9356240127D6951F00714EA0 /* SceneDelegate.swift in Sources */,
 				9356243327D6959B00714EA0 /* Constants.swift in Sources */,
