@@ -21,5 +21,19 @@
 			</array>
 		</dict>
 	</dict>
+    
+    <key>Resources</key>
+    <dict>
+        <key>Colors</key>
+        <dict>
+            <key>NavigationBarBackground</key>
+            <string>#E2F8FF</string>
+        </dict>
+        <key>Strings</key>
+        <dict>
+            <key>ApplicationTitle</key>
+            <string>Batch 5 Demo</string>
+        </dict>
+    </dict>
 </dict>
 </plist>

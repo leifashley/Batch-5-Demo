@@ -16,6 +16,9 @@
 		9356241627D6952200714EA0 /* Batch_5_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356241527D6952200714EA0 /* Batch_5_DemoTests.swift */; };
 		9356242027D6952200714EA0 /* Batch_5_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356241F27D6952200714EA0 /* Batch_5_DemoUITests.swift */; };
 		9356242227D6952200714EA0 /* Batch_5_DemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356242127D6952200714EA0 /* Batch_5_DemoUITestsLaunchTests.swift */; };
+		9356243327D6959B00714EA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356243127D6959B00714EA0 /* Constants.swift */; };
+		9356243427D6959B00714EA0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356243227D6959B00714EA0 /* Extensions.swift */; };
+		9356243627D7ABFC00714EA0 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356243527D7ABFC00714EA0 /* Resources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		9356241B27D6952200714EA0 /* Batch 5 DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Batch 5 DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9356241F27D6952200714EA0 /* Batch_5_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batch_5_DemoUITests.swift; sourceTree = "<group>"; };
 		9356242127D6952200714EA0 /* Batch_5_DemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batch_5_DemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9356243127D6959B00714EA0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9356243227D6959B00714EA0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9356243527D7ABFC00714EA0 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,8 @@
 		935623FD27D6951F00714EA0 /* Batch 5 Demo */ = {
 			isa = PBXGroup;
 			children = (
-				935623FE27D6951F00714EA0 /* AppDelegate.swift */,
-				9356240027D6951F00714EA0 /* SceneDelegate.swift */,
-				9356240227D6951F00714EA0 /* ViewController.swift */,
-				9356240427D6951F00714EA0 /* Main.storyboard */,
-				9356240727D6952200714EA0 /* Assets.xcassets */,
-				9356240927D6952200714EA0 /* LaunchScreen.storyboard */,
-				9356240C27D6952200714EA0 /* Info.plist */,
+				9356243027D6956500714EA0 /* App Support */,
+				9356242F27D6955D00714EA0 /* Views */,
 			);
 			path = "Batch 5 Demo";
 			sourceTree = "<group>";
@@ -125,6 +126,38 @@
 				9356242127D6952200714EA0 /* Batch_5_DemoUITestsLaunchTests.swift */,
 			);
 			path = "Batch 5 DemoUITests";
+			sourceTree = "<group>";
+		};
+		9356242E27D6953C00714EA0 /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				9356240227D6951F00714EA0 /* ViewController.swift */,
+			);
+			path = "Main View";
+			sourceTree = "<group>";
+		};
+		9356242F27D6955D00714EA0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9356240927D6952200714EA0 /* LaunchScreen.storyboard */,
+				9356240427D6951F00714EA0 /* Main.storyboard */,
+				9356242E27D6953C00714EA0 /* Main View */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9356243027D6956500714EA0 /* App Support */ = {
+			isa = PBXGroup;
+			children = (
+				9356240727D6952200714EA0 /* Assets.xcassets */,
+				9356240C27D6952200714EA0 /* Info.plist */,
+				935623FE27D6951F00714EA0 /* AppDelegate.swift */,
+				9356240027D6951F00714EA0 /* SceneDelegate.swift */,
+				9356243227D6959B00714EA0 /* Extensions.swift */,
+				9356243127D6959B00714EA0 /* Constants.swift */,
+				9356243527D7ABFC00714EA0 /* Resources.swift */,
+			);
+			path = "App Support";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +291,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9356243427D6959B00714EA0 /* Extensions.swift in Sources */,
 				9356240327D6951F00714EA0 /* ViewController.swift in Sources */,
 				935623FF27D6951F00714EA0 /* AppDelegate.swift in Sources */,
+				9356243627D7ABFC00714EA0 /* Resources.swift in Sources */,
 				9356240127D6951F00714EA0 /* SceneDelegate.swift in Sources */,
+				9356243327D6959B00714EA0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +477,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PG3WFJHK84;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Batch 5 Demo/Info.plist";
+				INFOPLIST_FILE = "Batch 5 Demo/App Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -469,7 +505,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PG3WFJHK84;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Batch 5 Demo/Info.plist";
+				INFOPLIST_FILE = "Batch 5 Demo/App Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
