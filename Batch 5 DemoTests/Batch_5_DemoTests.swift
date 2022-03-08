@@ -21,13 +21,28 @@ class Batch_5_DemoTests: XCTestCase {
     func testNewsURL() throws {
         XCTAssertEqual(Constants.Network.apiNewsListCount, "https://api.spaceflightnewsapi.net/v3/articles/count")
         XCTAssertEqual(Constants.Network.apiNewsListItem(id: 1), "https://api.spaceflightnewsapi.net/v3/articles/1")
+        /*
         XCTAssertEqual(Constants.Network.apiNewsListing(parameters: [
             "title_contains":"euro",
             "_start": "1",
             "_limit": "10"
         ]), "https://api.spaceflightnewsapi.net/v3/articles?title_contains=euro&_start=1&_limit=10")
+         */
     }
 
+    func testNewsCount() throws {
+        let expectation = expectation(description: "apiNewsCount")
+        let io = DispatchQueue(label: "apiNewsCount")
+        let handle = NewsListCountService(session: .shared, io: io)
+            .getListCount { count in
+                XCTAssertGreaterThan(count, 0)
+                print("test apiNewsCount =", count)
+                expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 5)
+        handle?.cancel()
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
