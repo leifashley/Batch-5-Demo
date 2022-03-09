@@ -56,7 +56,7 @@ extension NewsListViewPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let item = items[indexPath.row]
-        if let viewController = interactor?.makeRoute(id: item.id) {
+        if let viewController = interactor?.makeRoute(model: item) {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

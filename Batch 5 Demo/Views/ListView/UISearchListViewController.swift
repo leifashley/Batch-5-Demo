@@ -9,7 +9,7 @@ import UIKit
 class UISearchListViewController: UIViewController {
     
     static let storyboardId = String(describing: UISearchListViewController.self)
-    var presenter: UISearchListViewPresenter? = nil
+    public var presenter: UISearchListViewPresenter? = nil
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!

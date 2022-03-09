@@ -8,19 +8,24 @@
 import Combine
 import UIKit
 
-struct NewsListViewInteractor: UISearchListViewInteractor {
-    private let service: ListingService
-    private let router: UISearchListViewRouter
-    init(service: ListingService, router: UISearchListViewRouter) {
+class NewsListViewInteractor: NSObject, UISearchListViewInteractor {
+    private var service: ListingService? = nil
+    private var router: UISearchListViewRouter? = nil
+    func setup(service: ListingService) {
         self.service = service
+    }
+    func assign(router: UISearchListViewRouter) {
         self.router = router
     }
     func assignListingServiceReaction<T: Decodable>
         (keywords: String?, start: Int, limit: Int, entityType: T.Type,
          completion: @escaping ([T]) -> ()) -> AnyCancellable? {
-        service.getList(keywords: keywords, start: start, limit: limit, entityType: entityType, completion: completion)
+        return service?.getList(keywords: keywords, start: start, limit: limit, entityType: entityType, completion: completion)
     }
-    func makeRoute(id: Int) -> UIViewController {
-        return router.makeDetailViewController(id: id)
+    func makeRoute(model: Any) -> UIViewController {
+        guard let router = router else {
+            fatalError("critical: no router available")
+        }
+        return router.makeDetailViewController(model: model)
     }
 }

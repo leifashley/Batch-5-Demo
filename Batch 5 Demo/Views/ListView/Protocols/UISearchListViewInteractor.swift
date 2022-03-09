@@ -9,9 +9,10 @@ import Combine
 import UIKit
 
 protocol UISearchListViewInteractor {
-    init(service: ListingService, router: UISearchListViewRouter)
+    func setup(service: ListingService)
+    func assign(router: UISearchListViewRouter)
     func assignListingServiceReaction<T: Decodable>
         (keywords: String?, start: Int, limit: Int, entityType: T.Type,
          completion: @escaping ([T]) ->()) -> AnyCancellable?
-    func makeRoute(id: Int) -> UIViewController
+    func makeRoute(model: Any) -> UIViewController
 }

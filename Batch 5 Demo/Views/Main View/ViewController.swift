@@ -16,5 +16,12 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func onClick(_ sender: UIButton) {
+        let interactor = NewsListViewInteractor()
+        interactor.setup(service: NewsListingService())
+        let router = NewsListViewRouter()
+        let viewController = router.makeListViewController(interactor: interactor)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
