@@ -190,8 +190,6 @@
 		9356242E27D6953C00714EA0 /* Main View */ = {
 			isa = PBXGroup;
 			children = (
-				9356240927D6952200714EA0 /* LaunchScreen.storyboard */,
-				9356240427D6951F00714EA0 /* Main.storyboard */,
 				9356240227D6951F00714EA0 /* ViewController.swift */,
 			);
 			path = "Main View";
@@ -200,6 +198,8 @@
 		9356242F27D6955D00714EA0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9356240927D6952200714EA0 /* LaunchScreen.storyboard */,
+				9356240427D6951F00714EA0 /* Main.storyboard */,
 				3102F8E727D7B12F00226B60 /* ListView */,
 				9356242E27D6953C00714EA0 /* Main View */,
 			);

@@ -8,19 +8,11 @@ import UIKit
 
 class UISearchListViewController: UIViewController {
     
+    static let storyboardId = String(describing: UISearchListViewController.self)
     var presenter: UISearchListViewPresenter? = nil
     
-    private let searchBar: UISearchBar = {
-        let bar = UISearchBar()
-        bar.translatesAutoresizingMaskIntoConstraints = false
-        bar.searchTextField.keyboardType = .numberPad
-        return bar
-    }()
-    private let tableView: UITableView = {
-        let table = UITableView()
-        table.translatesAutoresizingMaskIntoConstraints = false
-        return table
-    }()
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     private func setupLayout() {
         searchBar.delegate = presenter?.getSearchDelegate()
         tableView.delegate = presenter?.getTableDelegate()
@@ -32,21 +24,10 @@ class UISearchListViewController: UIViewController {
            let cellId = presenter?.getTableCellId() {
             tableView.register(cellClass, forCellReuseIdentifier: cellId)
         }
-        NSLayoutConstraint.activate([
-            searchBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchBar.heightAnchor.constraint(equalToConstant: 48),
-            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = presenter?.getTitle()
-        setupLayout()
     }
 }
