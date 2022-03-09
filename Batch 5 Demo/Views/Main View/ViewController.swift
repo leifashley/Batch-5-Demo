@@ -13,6 +13,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = R.string("ApplicationTitle")
+        
+        // Example of how to call the detail view
+        let router = DetailRouter(navigationController: self.navigationController ?? UINavigationController())
+        let presenter = DetailPresenter(router: router)
+        router.presenter = presenter
+        router.showArticleWith(articleID: 0)
     }
 
 
