@@ -18,14 +18,55 @@ class Batch_5_DemoTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testNewsURL() throws {
+        XCTAssertEqual(Constants.Network.apiNewsListCount, "https://api.spaceflightnewsapi.net/v3/articles/count")
+        XCTAssertEqual(Constants.Network.apiNewsListItem(id: 1), "https://api.spaceflightnewsapi.net/v3/articles/1")
+        /*
+        XCTAssertEqual(Constants.Network.apiNewsListing(parameters: [
+            "title_contains":"euro",
+            "_start": "1",
+            "_limit": "10"
+        ]), "https://api.spaceflightnewsapi.net/v3/articles?title_contains=euro&_start=1&_limit=10")
+         */
     }
 
+    func testNewsCount() throws {
+        let expectation = expectation(description: "apiNewsCount")
+        let io = DispatchQueue(label: "apiNewsCount")
+        let handle = NewsListCountService(session: .shared, io: io)
+            .getListCount { count in
+                XCTAssertGreaterThan(count, 0)
+                print("test apiNewsCount =", count)
+                expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 5)
+        handle?.cancel()
+    }
+    
+    func testNewsItemLongMarch() throws {
+        let expectation = expectation(description: "apiNewsItem")
+        let id = 14173
+        let handle = NewsListItemService().getItem(id: id, placeholder: NewsItemModel()) { item in
+            XCTAssertEqual(item.id, id)
+            expectation.fulfill()
+            print(item)
+        }
+        wait(for: [expectation], timeout: 5)
+        handle?.cancel()
+    }
+    func testNewsListLongMarch() throws {
+        let expectation = expectation(description: "apiNewsItem")
+        let id = 14173
+        let handle = NewsListingService().getList(keywords: "long", entityType: NewsItemModel.self) { items in
+            XCTAssertFalse(items.isEmpty)
+            print(items)
+            let filtered = items.map { $0.id }
+            XCTAssertTrue(filtered.contains { $0 == id})
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 5)
+        handle?.cancel()
+    }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
