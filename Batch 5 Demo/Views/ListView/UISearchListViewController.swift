@@ -13,21 +13,20 @@ class UISearchListViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    private func setupLayout() {
-        searchBar.delegate = presenter?.getSearchDelegate()
-        tableView.delegate = presenter?.getTableDelegate()
-        tableView.dataSource = presenter?.getTableSource()
-        view.backgroundColor = .systemBackground
-        view.addSubview(searchBar)
-        view.addSubview(tableView)
-        if let cellClass = presenter?.getTableCellClass(),
-           let cellId = presenter?.getTableCellId() {
-            tableView.register(cellClass, forCellReuseIdentifier: cellId)
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = presenter?.getTitle()
+        searchBar.delegate = presenter?.getSearchDelegate()
+        tableView.delegate = presenter?.getTableDelegate()
+        tableView.dataSource = presenter?.getTableSource()
+        view.backgroundColor = .systemBackground
+        if let cellClass = presenter?.getTableCellClass(),
+           let cellId = presenter?.getTableCellId() {
+            tableView.register(cellClass, forCellReuseIdentifier: cellId)
+        }
+        if let nav = navigationController {
+            presenter?.assignNavigationController(navigationController: nav)
+        }
     }
 }
