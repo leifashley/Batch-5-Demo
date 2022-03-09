@@ -16,17 +16,16 @@ class UISearchListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = presenter?.getTitle()
-        searchBar.delegate = presenter?.getSearchDelegate()
-        tableView.delegate = presenter?.getTableDelegate()
-        tableView.dataSource = presenter?.getTableSource()
-        view.backgroundColor = .systemBackground
-        if let cellClass = presenter?.getTableCellClass(),
-           let cellId = presenter?.getTableCellId() {
-            tableView.register(cellClass, forCellReuseIdentifier: cellId)
-        }
-        if let nav = navigationController {
-            presenter?.assignNavigationController(navigationController: nav)
+        if let p = presenter {
+            navigationItem.title = p.getTitle()
+            searchBar.delegate = p
+            tableView.delegate = p
+            tableView.dataSource = p
+            tableView.register(p.getTableCellClass(), forCellReuseIdentifier: p.getTableCellId())
+            if let nav = navigationController {
+                p.assignNavigationController(navigationController: nav)
+            }
+            p.setTableView(tableView: tableView)
         }
     }
 }

@@ -61,4 +61,11 @@ extension String {
             .receive(on: DispatchQueue.main)
             .assign(to: keypath, on: object)
     }
+    func asURLRequest() -> URLRequest? {
+        if let url = URL(string: self) {
+            return URLRequest(url: url)
+        } else {
+            return nil
+        }
+    }
 }

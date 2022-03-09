@@ -9,22 +9,18 @@ import Combine
 import UIKit
 
 struct NewsListViewInteractor: UISearchListViewInteractor {
-    
-    private let presenter: UISearchListViewPresenter
-    private var handlers: Set<AnyCancellable> = []
-    
-    init(presenter: UISearchListViewPresenter) {
-        self.presenter = presenter
+    private let service: ListingService
+    private let router: UISearchListViewRouter
+    init(service: ListingService, router: UISearchListViewRouter) {
+        self.service = service
+        self.router = router
     }
-    
-    func subscribeListCount(serivce: ListCountService) {
+    func assignListingServiceReaction<T: Decodable>
+        (keywords: String?, start: Int, limit: Int, entityType: T.Type,
+         completion: @escaping ([T]) -> ()) -> AnyCancellable? {
+        service.getList(keywords: keywords, start: start, limit: limit, entityType: entityType, completion: completion)
     }
-    
-    func subscribeListing(service: ListingService) {
+    func makeRoute(id: Int) -> UIViewController {
+        return router.makeDetailViewController(id: id)
     }
-    
-    func subscribeListItem(service: ListItemService) {
-    }
-    
-    
 }

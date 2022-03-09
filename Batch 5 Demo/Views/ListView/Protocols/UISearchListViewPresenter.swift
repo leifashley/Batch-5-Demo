@@ -7,13 +7,11 @@
 
 import UIKit
 
-protocol UISearchListViewPresenter {
-    func assignDetailViewRouter(router: UISearchListViewRouter)
+protocol UISearchListViewPresenter: UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    func assign(interactor: UISearchListViewInteractor)
     func assignNavigationController(navigationController: UINavigationController)
-    func getSearchDelegate() -> UISearchBarDelegate
-    func getTableSource() -> UITableViewDataSource
-    func getTableDelegate() -> UITableViewDelegate
     func getTableCellClass() -> AnyClass
     func getTableCellId() -> String
     func getTitle() -> String
+    func setTableView(tableView: UITableView)
 }
