@@ -9,6 +9,7 @@ import UIKit
 
 protocol UISearchListViewPresenter {
     func assignDetailViewRouter(router: UISearchListViewRouter)
+    func assignNavigationController(navigationController: UINavigationController)
     func getSearchDelegate() -> UISearchBarDelegate
     func getTableSource() -> UITableViewDataSource
     func getTableDelegate() -> UITableViewDelegate

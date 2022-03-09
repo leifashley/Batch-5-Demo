@@ -5,6 +5,7 @@
 //  Created by Leif Ashley on 3/4/22.
 //
 
+import Combine
 import Foundation
 import UIKit
 
@@ -45,4 +46,19 @@ extension Date {
             }
             throw Exception.invalidDateFormat
         }
+}
+
+extension String {
+    func assignWebImage<Root>(session: URLSession = .shared, to keypath: ReferenceWritableKeyPath<Root, UIImage>, on object: Root) -> AnyCancellable? {
+        guard let url = URL(string: self) else {
+            NSLog("rare exception: \(Exception.invalidURL)")
+            return nil
+        }
+        return session.dataTaskPublisher(for: url)
+            .tryMap { $0.data }
+            .replaceError(with: Data())
+            .compactMap { UIImage(data: $0) }
+            .receive(on: DispatchQueue.main)
+            .assign(to: keypath, on: object)
+    }
 }

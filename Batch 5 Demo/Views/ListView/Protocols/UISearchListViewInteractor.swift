@@ -6,7 +6,7 @@
 //
 
 protocol UISearchListViewInteractor {
-    func assign(presenter: UISearchListViewPresenter)
+    init(presenter: UISearchListViewPresenter)
     func subscribeListCount(serivce: ListCountService)
     func subscribeListing(service: ListingService)
     func subscribeListItem(service: ListItemService)
