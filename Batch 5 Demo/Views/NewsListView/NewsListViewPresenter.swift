@@ -10,6 +10,7 @@ import UIKit
 class NewsListViewPresenter: NSObject, UISearchListViewPresenter {
     
     let cellId = UUID().uuidString
+    let pageSize = 100
     private var interactor: UISearchListViewInteractor? = nil
     private var navigationController: UINavigationController? = nil
     private var handler: AnyCancellable? = nil
@@ -35,7 +36,7 @@ class NewsListViewPresenter: NSObject, UISearchListViewPresenter {
     }
     func setTableView(tableView: UITableView) {
         self.tableView = tableView
-        handler = interactor?.assignListingServiceReaction(keywords: nil, start: -1, limit: 10, entityType: NewsItemModel.self) { entries in
+        handler = interactor?.assignListingServiceReaction(keywords: nil, start: -1, limit: pageSize, entityType: NewsItemModel.self) { entries in
             self.items = entries
             self.tableView?.reloadData()
         }
@@ -43,7 +44,7 @@ class NewsListViewPresenter: NSObject, UISearchListViewPresenter {
 }
 extension NewsListViewPresenter: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        handler = interactor?.assignListingServiceReaction(keywords: searchText, start: -1, limit: 10, entityType: NewsItemModel.self) { entries in
+        handler = interactor?.assignListingServiceReaction(keywords: searchText, start: -1, limit: pageSize, entityType: NewsItemModel.self) { entries in
             self.items = entries
             self.tableView?.reloadData()
         }

@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="160" id="JVl-jR-jlk"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" title=" ">
                                     <backgroundConfiguration key="background" image="News" imageContentMode="scaleAspectFit"/>
                                 </buttonConfiguration>
                                 <connections>

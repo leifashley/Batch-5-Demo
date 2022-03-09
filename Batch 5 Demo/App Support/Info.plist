@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Resources</key>
+	<dict>
+		<key>Colors</key>
+		<dict>
+			<key>NavigationBarBackground</key>
+			<string>#E2F8FF</string>
+		</dict>
+		<key>Strings</key>
+		<dict>
+			<key>ApplicationTitle</key>
+			<string>Batch 5 Demo</string>
+			<key>NewsTitle</key>
+			<string>News</string>
+		</dict>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -19,21 +34,6 @@
 					<string>Main</string>
 				</dict>
 			</array>
-		</dict>
-	</dict>
-	<key>Resources</key>
-	<dict>
-		<key>Colors</key>
-		<dict>
-			<key>NavigationBarBackground</key>
-			<string>#E2F8FF</string>
-		</dict>
-		<key>Strings</key>
-		<dict>
-			<key>ApplicationTitle</key>
-			<string>Batch 5 Demo</string>
-			<key>NewsTitle</key>
-			<string>News</string>
 		</dict>
 	</dict>
 </dict>

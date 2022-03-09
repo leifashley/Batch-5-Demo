@@ -21,7 +21,7 @@ class NewsListItemView: UITableViewCell {
     }
     
     private var imageLoadingHandler: AnyCancellable? = nil
-    static let cellHeight: CGFloat = 64
+    static let cellHeight: CGFloat = 96
     public var model: NewsItemModel = NewsItemModel() {
         didSet {
             if model.id > 0 {
