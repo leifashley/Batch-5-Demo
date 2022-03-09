@@ -7,5 +7,7 @@
 
 import Combine
 protocol ListingService {
-    func getList<T>(keywords: String?, start: Int, limit: Int, completion: @escaping ([T], Error?) -> ()) -> AnyCancellable?
+    func getList<T: Decodable>(keywords: String?, start: Int, limit: Int,
+                               entityType: T.Type,
+                               completion: @escaping ([T]) -> ()) -> AnyCancellable?
 }

@@ -18,6 +18,7 @@ class NewsListItemService: ListItemService {
     func getItem<T: Decodable>(id: Int, placeholder: T, completion: @escaping (T) -> ()) -> AnyCancellable? {
         let urlString = Constants.Network.apiNewsListItem(id: id)
         guard let url = URL(string: urlString) else {
+            NSLog("rare exception: invalid url for \(urlString)")
             return nil
         }
         let decoder = JSONDecoder()
