@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsItemModel: Codable {
+struct NewsItem: Codable {
     let id: Int
     let title: String
     let url: String
@@ -19,6 +19,7 @@ struct NewsItemModel: Codable {
     let featured: Bool
     //let launches: [Int]
     //let events: [Int]
+    
     init(id i: Int = -1, title t: String = "", url u: String = "",
          imageUrl img: String = "", newsSite n: String = "", summary s: String = "",
          publishedAt pat: Date = Date(), updatedAt uat: Date = Date(), featured f: Bool = false

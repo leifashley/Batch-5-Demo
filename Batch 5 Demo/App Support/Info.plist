@@ -4,11 +4,6 @@
 <dict>
 	<key>Resources</key>
 	<dict>
-		<key>Colors</key>
-		<dict>
-			<key>NavigationBarBackground</key>
-			<string>#E2F8FF</string>
-		</dict>
 		<key>Strings</key>
 		<dict>
 			<key>ApplicationTitle</key>

@@ -46,7 +46,7 @@ class Batch_5_DemoTests: XCTestCase {
     func testNewsItemLongMarch() throws {
         let expectation = expectation(description: "apiNewsItem")
         let id = 14173
-        let handle = NewsListItemService().getItem(id: id, placeholder: NewsItemModel()) { item in
+        let handle = NewsListItemService().getItem(id: id, placeholder: NewsItem()) { item in
             XCTAssertEqual(item.id, id)
             expectation.fulfill()
             print(item)
@@ -57,7 +57,7 @@ class Batch_5_DemoTests: XCTestCase {
     func testNewsListLongMarch() throws {
         let expectation = expectation(description: "apiNewsItem")
         let id = 14173
-        let handle = NewsListingService().getList(keywords: "long", entityType: NewsItemModel.self) { items in
+        let handle = NewsListingService().getList(keywords: "long", entityType: NewsItem.self) { items in
             XCTAssertFalse(items.isEmpty)
             print(items)
             let filtered = items.map { $0.id }

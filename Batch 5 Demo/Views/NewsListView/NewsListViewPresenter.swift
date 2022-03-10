@@ -11,14 +11,18 @@ class NewsListViewPresenter: NSObject, UISearchListViewPresenter {
     
     let cellId = UUID().uuidString
     let pageSize = 100
+    
     private var interactor: UISearchListViewInteractor? = nil
     private var navigationController: UINavigationController? = nil
     private var handler: AnyCancellable? = nil
     private var tableView: UITableView? = nil
-    var items: [NewsItemModel] = []
+    
+    var items: [NewsItem] = []
+    
     func assignNavigationController(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
+    
     func assign(interactor: UISearchListViewInteractor) {
         self.interactor = interactor
     }
@@ -34,22 +38,25 @@ class NewsListViewPresenter: NSObject, UISearchListViewPresenter {
     func getTitle() -> String {
         return R.string("NewsTitle")
     }
+    
     func setTableView(tableView: UITableView) {
         self.tableView = tableView
-        handler = interactor?.assignListingServiceReaction(keywords: nil, start: -1, limit: pageSize, entityType: NewsItemModel.self) { entries in
+        handler = interactor?.assignListingServiceReaction(keywords: nil, start: -1, limit: pageSize, entityType: NewsItem.self) { entries in
             self.items = entries
             self.tableView?.reloadData()
         }
     }
 }
+
 extension NewsListViewPresenter: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        handler = interactor?.assignListingServiceReaction(keywords: searchText, start: -1, limit: pageSize, entityType: NewsItemModel.self) { entries in
+        handler = interactor?.assignListingServiceReaction(keywords: searchText, start: -1, limit: pageSize, entityType: NewsItem.self) { entries in
             self.items = entries
             self.tableView?.reloadData()
         }
     }
 }
+
 extension NewsListViewPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return NewsListItemView.cellHeight
@@ -62,6 +69,7 @@ extension NewsListViewPresenter: UITableViewDelegate {
         }
     }
 }
+
 extension NewsListViewPresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.tableView = tableView

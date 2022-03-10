@@ -6,6 +6,7 @@
 //
 
 import Combine
+
 protocol ListingService {
     func getList<T: Decodable>(keywords: String?, start: Int, limit: Int,
                                entityType: T.Type,

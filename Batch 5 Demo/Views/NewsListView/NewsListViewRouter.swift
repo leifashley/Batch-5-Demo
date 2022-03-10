@@ -6,25 +6,29 @@
 //
 import UIKit
 
-class NewsListViewRouter:NSObject, UISearchListViewRouter {
+class NewsListViewRouter: UISearchListViewRouter {
     func makeListViewController(interactor: UISearchListViewInteractor) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: UISearchListViewController.storyboardId) as? UISearchListViewController else {
             fatalError("unexpected view controller type")
         }
+        
         let presenter = NewsListViewPresenter()
         presenter.assign(interactor: interactor)
         interactor.assign(router: self)
         viewController.presenter = presenter
+        
         return viewController
     }
     
     func makeDetailViewController(model: Any) -> UIViewController {
-        guard let model = model as? NewsItemModel else {
+        guard let model = model as? NewsItem else {
             fatalError("unexpected data model type")
         }
+        
         let viewController = NewsDetailView()
-        viewController.model = model
+        viewController.newsItem = model
+        
         return viewController
     }
 }
