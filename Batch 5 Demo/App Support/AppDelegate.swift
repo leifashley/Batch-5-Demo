@@ -13,13 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor(named: "AppNavigationBarBackground")
         
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
         if #available(iOS 15.0, *) {
             UINavigationBar.appearance().compactScrollEdgeAppearance = appearance
         }

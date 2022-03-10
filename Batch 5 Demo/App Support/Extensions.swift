@@ -9,6 +9,12 @@ import Combine
 import Foundation
 import UIKit
 
+extension String {
+    func localized() -> String {
+        return NSLocalizedString(self, comment: "localized()")
+    }
+}
+
 extension UIColor {
     convenience init(webColorCode code: UInt) {
         let red   = CGFloat((code & 0xFF0000) >> 16)

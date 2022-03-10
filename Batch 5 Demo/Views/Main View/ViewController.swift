@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = R.string("ApplicationTitle")
+        navigationItem.title = "Application-Title".localized()
     }
 
 
