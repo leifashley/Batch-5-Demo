@@ -9,25 +9,23 @@ import UIKit
 class UISearchListViewController: UIViewController {
     
     static let storyboardId = String(describing: UISearchListViewController.self)
-    var presenter: UISearchListViewPresenter? = nil
+    public var presenter: UISearchListViewPresenter? = nil
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    private func setupLayout() {
-        searchBar.delegate = presenter?.getSearchDelegate()
-        tableView.delegate = presenter?.getTableDelegate()
-        tableView.dataSource = presenter?.getTableSource()
-        view.backgroundColor = .systemBackground
-        view.addSubview(searchBar)
-        view.addSubview(tableView)
-        if let cellClass = presenter?.getTableCellClass(),
-           let cellId = presenter?.getTableCellId() {
-            tableView.register(cellClass, forCellReuseIdentifier: cellId)
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = presenter?.getTitle()
+        if let p = presenter {
+            navigationItem.title = p.getTitle()
+            searchBar.delegate = p
+            tableView.delegate = p
+            tableView.dataSource = p
+            tableView.register(p.getTableCellClass(), forCellReuseIdentifier: p.getTableCellId())
+            if let nav = navigationController {
+                p.assignNavigationController(navigationController: nav)
+            }
+            p.setTableView(tableView: tableView)
+        }
     }
 }

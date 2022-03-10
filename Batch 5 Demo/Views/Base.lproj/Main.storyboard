@@ -17,27 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDG-f4-xLm">
-                                <rect key="frame" x="100.5" y="119.5" width="119.5" height="41"/>
-                                <string key="text">Welcome to the
-Batch 5 Demo</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWa-9V-HhS">
+                                <rect key="frame" x="16" y="182" width="288" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="JVl-jR-jlk"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" ">
+                                    <backgroundConfiguration key="background" image="News" imageContentMode="scaleAspectFit"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gcf-9X-kl8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cDG-f4-xLm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="70t-ps-gdF"/>
-                            <constraint firstItem="cDG-f4-xLm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="9Vd-zv-4T1"/>
+                            <constraint firstItem="YWa-9V-HhS" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="iP3-VD-gVg"/>
+                            <constraint firstItem="YWa-9V-HhS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="n3i-ED-zTa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YWa-9V-HhS" secondAttribute="trailing" constant="16" id="rgO-o4-sBg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VAO-id-rJq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1040.625" y="116.25"/>
         </scene>
         <!--Search List View Controller-->
         <scene sceneID="mEj-jY-JqP">
@@ -86,7 +92,7 @@ Batch 5 Demo</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZVL-uN-aeW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7S6-JW-oR4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -100,6 +106,7 @@ Batch 5 Demo</string>
         </scene>
     </scenes>
     <resources>
+        <image name="News" width="377.8900146484375" height="377.8900146484375"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
