@@ -22,7 +22,7 @@ class NewsListItemView: UITableViewCell {
     
     private var imageLoadingHandler: AnyCancellable? = nil
     static let cellHeight: CGFloat = 96
-    public var model: NewsItemModel = NewsItemModel() {
+    public var model: NewsItem = NewsItem() {
         didSet {
             if model.id > 0 {
                 imageLoadingHandler = model.imageUrl.assignWebImage(to: \.imageIcon, on: self)
@@ -34,17 +34,20 @@ class NewsListItemView: UITableViewCell {
             }
         }
     }
+    
     private let iconView: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
+    
     private let bannerView: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.numberOfLines = 0
         return view
     }()
+    
     private func setupLayout() {
         contentView.addSubview(iconView)
         contentView.addSubview(bannerView)

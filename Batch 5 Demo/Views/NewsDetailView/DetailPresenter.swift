@@ -8,7 +8,7 @@
 import Foundation
 
 class DetailPresenter {
-    var view = DetailView()
+    var view = NewsDetailView()
     var interactor = DetailInteractor()
     var router: DetailRouter
     
@@ -17,7 +17,7 @@ class DetailPresenter {
     }
     
     func showArticleWith(articleID: Int) {
-        self.view.newArticle = self.interactor.getArticleWith(articleID: articleID)
+        view.newsItem = interactor.getNewsItem(articleID: articleID)
         self.router.navigationController.present(self.view, animated: true)
     }
 }

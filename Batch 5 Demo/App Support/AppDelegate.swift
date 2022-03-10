@@ -13,9 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+//        UINavigationBar.appearance().backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1);#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        UINavigationBar.appearance().backgroundColor = UIColor(named: "AppNavigationBarBackground")
         
-        UINavigationBar.appearance().backgroundColor = R.color("NavigationBarBackground")
+        //TODO: think the list view is better landing view, but holding off a bit on it.
+//        let interactor = NewsListViewInteractor()
+//        interactor.setup(service: NewsListingService())
+//        let router = NewsListViewRouter()
+//        let viewController = router.makeListViewController(interactor: interactor)
+//        navigationController?.pushViewController(viewController, animated: true)
+        
         return true
     }
 
