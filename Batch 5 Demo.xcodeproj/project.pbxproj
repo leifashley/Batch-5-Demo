@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		012177C727D9561400E856C7 /* Detail in Resources */ = {isa = PBXBuildFile; fileRef = 012177C627D9561400E856C7 /* Detail */; };
 		3102F8EC27D7B12F00226B60 /* UISearchListViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8E827D7B12F00226B60 /* UISearchListViewInteractor.swift */; };
 		3102F8ED27D7B12F00226B60 /* UISearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8E927D7B12F00226B60 /* UISearchListViewController.swift */; };
 		3102F8EE27D7B12F00226B60 /* UISearchListViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8EA27D7B12F00226B60 /* UISearchListViewRouter.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		012177C627D9561400E856C7 /* Detail */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Detail; sourceTree = "<group>"; };
 		3102F8E827D7B12F00226B60 /* UISearchListViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewInteractor.swift; sourceTree = "<group>"; };
 		3102F8E927D7B12F00226B60 /* UISearchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewController.swift; sourceTree = "<group>"; };
 		3102F8EA27D7B12F00226B60 /* UISearchListViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewRouter.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				9356240927D6952200714EA0 /* LaunchScreen.storyboard */,
 				9356240427D6951F00714EA0 /* Main.storyboard */,
 				3102F8E727D7B12F00226B60 /* ListView */,
+				012177C627D9561400E856C7 /* Detail */,
 				9356242E27D6953C00714EA0 /* Main View */,
 			);
 			path = Views;
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9356240B27D6952200714EA0 /* LaunchScreen.storyboard in Resources */,
+				012177C727D9561400E856C7 /* Detail in Resources */,
 				9356240827D6952200714EA0 /* Assets.xcassets in Resources */,
 				9356240627D6951F00714EA0 /* Main.storyboard in Resources */,
 			);
