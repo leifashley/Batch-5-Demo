@@ -30,6 +30,13 @@ class NewsListViewControllerTests: XCTestCase {
     func testNewsListVC_initial_SearchListEmpty() {
         XCTAssertEqual(sut.searchBar.text, "")
     }
+    
+    func testNewsListVC_IBOutletsNonNil() throws {
+        _ = try XCTUnwrap(sut.searchView, "The search view is not connected to IBOutlet")
+        _ = try XCTUnwrap(sut.searchBgView, "The search Bg view is not connected to IBOutlet")
+        _ = try XCTUnwrap(sut.searchBar, "The search bar is not connected to IBOutlet")
+        _ = try XCTUnwrap(sut.tableView, "The table view is not connected to IBOutlet")
+    }
 
     
     
