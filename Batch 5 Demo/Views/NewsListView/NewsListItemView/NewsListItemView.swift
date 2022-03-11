@@ -23,6 +23,8 @@ class NewsListItemView: UITableViewCell {
         set { iconView.image = newValue }
     }
     
+    var presenter : NewsListItemViewPresenter?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -36,6 +38,11 @@ class NewsListItemView: UITableViewCell {
         self.newsSiteLbl.textColor = .textPrimaryColor
         
         self.splineView.backgroundColor = .splinesColor
+        
+    }
+    
+    func showNewsItem(){
+        presenter?.loadNewsItem()
     }
     
     func configure(model: NewsItem?){
