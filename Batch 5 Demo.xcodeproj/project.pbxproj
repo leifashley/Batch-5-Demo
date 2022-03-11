@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EA2FC9A27DA911D0087BBBB /* Font in Resources */ = {isa = PBXBuildFile; fileRef = 1EA2FC9927DA911C0087BBBB /* Font */; };
 		3102F8EC27D7B12F00226B60 /* UISearchListViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8E827D7B12F00226B60 /* UISearchListViewInteractor.swift */; };
 		3102F8ED27D7B12F00226B60 /* UISearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8E927D7B12F00226B60 /* UISearchListViewController.swift */; };
 		3102F8EE27D7B12F00226B60 /* UISearchListViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3102F8EA27D7B12F00226B60 /* UISearchListViewRouter.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EA2FC9927DA911C0087BBBB /* Font */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Font; sourceTree = "<group>"; };
 		3102F8E827D7B12F00226B60 /* UISearchListViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewInteractor.swift; sourceTree = "<group>"; };
 		3102F8E927D7B12F00226B60 /* UISearchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewController.swift; sourceTree = "<group>"; };
 		3102F8EA27D7B12F00226B60 /* UISearchListViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchListViewRouter.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				9356240027D6951F00714EA0 /* SceneDelegate.swift */,
 				9356243227D6959B00714EA0 /* Extensions.swift */,
 				9356243127D6959B00714EA0 /* Constants.swift */,
+				1EA2FC9927DA911C0087BBBB /* Font */,
 			);
 			path = "App Support";
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				935B980327DA7DF100EAF9A8 /* Localizable.strings in Resources */,
 				9356240827D6952200714EA0 /* Assets.xcassets in Resources */,
 				9356240627D6951F00714EA0 /* Main.storyboard in Resources */,
+				1EA2FC9A27DA911D0087BBBB /* Font in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

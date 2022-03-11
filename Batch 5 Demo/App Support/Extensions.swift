@@ -30,7 +30,21 @@ extension UIColor {
         let color = UInt(code, radix: 16) ?? 0
         self.init(webColorCode: color)
     }
+    
+//    //universal
+//    static let primaryColor = UIColor(red: 232/255, green: 70/255, blue: 48/255, alpha: 1.0)
+    
+    //splines
+    static let splinesColor = UIColor(named: "SplinesColor")
+    
+    //text
+    static let textPrimaryColor = UIColor(named: "TextPrimaryColor")
+    static let textSecondaryColor = UIColor(named: "TextSecondaryColor")
+    
+    //App background Color
+    static let appBackgroundColor = UIColor(named: "AppBackgroundColor")
 }
+    
 
 extension Date {
     static func iso8601Adaptive(_ decoder: Decoder) throws -> Date {
@@ -51,6 +65,12 @@ extension Date {
                 }
             }
             throw Exception.invalidDateFormat
+        }
+    
+    func getFormattedDate(format: String) -> String {
+            let dateformat = DateFormatter()
+            dateformat.dateFormat = format
+            return dateformat.string(from: self)
         }
 }
 
@@ -73,5 +93,61 @@ extension String {
         } else {
             return nil
         }
+    }
+}
+
+
+extension UIFont {
+    
+    class func notoSansRegular(size: CGFloat) -> UIFont {
+        return UIFont(name: "NotoSans-Regular", size: size) ?? UIFont.systemFont(ofSize: size, weight: .regular)
+    }
+    
+    class func notoSansMedium(size: CGFloat) -> UIFont {
+        return UIFont(name: "NotoSans-Medium", size: size) ?? UIFont.systemFont(ofSize: size, weight: .medium)
+    }
+    
+    class func notoSansSemibold(size: CGFloat) -> UIFont {
+        return UIFont(name: "NotoSans-SemiBold", size: size) ?? UIFont.systemFont(ofSize: size, weight: .semibold)
+    }
+}
+
+
+extension UIView {
+    
+    func addShadow(width: CGFloat = 0, height: CGFloat = 2, opacity: Float = 1, color: UIColor = UIColor.black.withAlphaComponent(0.1)) {
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowOffset = CGSize(width: width, height: height)
+    }
+    
+}
+
+
+extension UIViewController{
+    func setupNavBar() {
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textPrimaryColor!, .font: UIFont.notoSansSemibold(size: 16)]
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.layoutIfNeeded()
+        
+        let leftBarButton = UIBarButtonItem(image: UIImage(named: "Back_Icon"), landscapeImagePhone: .remove, style: .plain, target: self, action: #selector(backButtonTapped))
+        leftBarButton.tintColor = .textPrimaryColor
+
+        navigationItem.leftItemsSupplementBackButton = false
+        navigationItem.leftBarButtonItem = leftBarButton
+
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = .zero
+        self.navigationController?.navigationBar.layer.shadowRadius = 4
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.2
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    @objc func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
