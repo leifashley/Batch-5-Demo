@@ -13,18 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor(named: "AppNavigationBarBackground")
-        
-        UINavigationBar.appearance().compactAppearance = appearance
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        if #available(iOS 15.0, *) {
-            UINavigationBar.appearance().compactScrollEdgeAppearance = appearance
-        }
-        
-        UINavigationBar.appearance().tintColor = UIColor(named: "AppNavigationBarButton")
+        setAppearance()
         
         //TODO: think the list view is better landing view, but holding off a bit on it.
 //        let interactor = NewsListViewInteractor()
@@ -34,6 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        navigationController?.pushViewController(viewController, animated: true)
         
         return true
+    }
+    
+    func setAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor(named: "AppNavigationBarBackground")
+        
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
+        if #available(iOS 15.0, *) {
+            UINavigationBar.appearance().compactScrollEdgeAppearance = appearance
+        }
+        
+        UINavigationBar.appearance().tintColor = UIColor(named: "AppNavigationBarButton")
     }
 
     // MARK: UISceneSession Lifecycle

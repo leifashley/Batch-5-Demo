@@ -25,20 +25,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batch 5 Demo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-B4-xaP">
-                                <rect key="frame" x="153" y="337.5" width="108" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ROR-6L-zPb" secondAttribute="trailing" id="BHG-nJ-ohQ"/>
-                            <constraint firstItem="CS3-B4-xaP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="W6g-pS-bwJ"/>
                             <constraint firstItem="ROR-6L-zPb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="c0B-2L-yhz"/>
                             <constraint firstItem="9Tv-SO-Szm" firstAttribute="top" secondItem="ROR-6L-zPb" secondAttribute="bottom" constant="-34" id="g5s-zN-WVO"/>
-                            <constraint firstItem="CS3-B4-xaP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-100" id="mlG-By-bxs"/>
                             <constraint firstItem="ROR-6L-zPb" firstAttribute="top" secondItem="RfH-dt-jUd" secondAttribute="bottom" constant="-44" id="vKR-ap-xZA"/>
                         </constraints>
                     </view>

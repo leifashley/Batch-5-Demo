@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Batch 5 Demo
+
+  Created by Leif Ashley on 3/10/22.
+  
+*/
+
+"Application-Title" = "Batch 5 Demo";
+
+"ViewTitle-News" = "News";

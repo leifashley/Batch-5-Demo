@@ -9,10 +9,10 @@ import Combine
 import UIKit
 
 class NewsListViewInteractor: NSObject, UISearchListViewInteractor {
-    private var service: ListingService? = nil
+    private var service: NewsListingService? = nil
     private var router: UISearchListViewRouter? = nil
     
-    func setup(service: ListingService) {
+    func setup(service: NewsListingService) {
         self.service = service
     }
     
@@ -20,9 +20,7 @@ class NewsListViewInteractor: NSObject, UISearchListViewInteractor {
         self.router = router
     }
     
-    func assignListingServiceReaction<T: Decodable>
-        (keywords: String?, start: Int, limit: Int, entityType: T.Type,
-         completion: @escaping ([T]) -> ()) -> AnyCancellable? {
+    func assignListingServiceReaction<T: Decodable>(keywords: String?, start: Int, limit: Int, entityType: T.Type, completion: @escaping ([T]) -> ()) -> AnyCancellable? {
         return service?.getList(keywords: keywords, start: start, limit: limit, entityType: entityType, completion: completion)
     }
     

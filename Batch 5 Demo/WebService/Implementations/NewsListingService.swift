@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 
-class NewsListingService: ListingService {
+class NewsListingService {
     let session: URLSession
     let io: DispatchQueue
     
@@ -45,7 +45,8 @@ class NewsListingService: ListingService {
         decoder.dateDecodingStrategy = .custom(Date.iso8601Adaptive)
         
         return session.dataTaskPublisher(for: url)
-            .tryMap { $0.data }
+            .print("Network.getList")
+        .tryMap { $0.data }
         .decode(type: [T].self, decoder: decoder)
         .replaceError(with: [])
         .receive(on: io)
