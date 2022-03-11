@@ -1,15 +1,15 @@
 //
-//  Batch_5_DemoTests.swift
+//  NewsListingWebServiceTests.swift
 //  Batch 5 DemoTests
 //
-//  Created by Leif Ashley on 3/7/22.
+//  Created by Sheharyar Irfan on 2022-03-11.
 //
 
 import XCTest
 @testable import Batch_5_Demo
 
-class Batch_5_DemoTests: XCTestCase {
-    
+class NewsListingWebServiceTests: XCTestCase {
+
     var sut: NewsListingService!
 
     override func setUpWithError() throws {
@@ -42,6 +42,7 @@ class Batch_5_DemoTests: XCTestCase {
         let expectation = expectation(description: "apiNewsCount1")
         
         let jsonString = "[{\"id\":14203,\"title\":\"SpaceX to launch AST SpaceMobile’s first space-based cell towers\",\"url\":\"https://www.teslarati.com/spacex-ast-spacemobile-bluebird-launch-contract/\",\"imageUrl\":\"https://www.teslarati.com/wp-content/uploads/2022/03/BlueBird-satellite-AST-SpaceMobile-render-6-crop-c.jpg\",\"newsSite\":\"Teslarati\",\"summary\":\"AST Space Mobile says it has chosen SpaceX to launch its first operational BlueBird satellite after contracting the company to launch BlueWalker...\",\"publishedAt\":\"2022-03-11T12:14:22.000Z\",\"updatedAt\":\"2022-03-11T12:14:30.827Z\",\"featured\":false,\"launches\":[],\"events\":[]}]\""
+        
         MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
         
         sut.getList(keywords: nil, start: -1, limit: 1, entityType: NewsItem.self) { newsItems in
@@ -82,12 +83,6 @@ class Batch_5_DemoTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 5)
         handle?.cancel()
-    }
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }
