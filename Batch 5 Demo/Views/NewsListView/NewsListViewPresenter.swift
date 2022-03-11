@@ -83,9 +83,10 @@ extension NewsListViewPresenter: UITableViewDataSource {
 //        } else {
 //            cell = NewsListItemView(style: .default, reuseIdentifier: "NewsListItemView")
 //        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListItemView", for: indexPath) as! NewsListItemView
-        cell.selectionStyle = .none
-        cell.configure(model: items[indexPath.row])
-        return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListItemView", for: indexPath) as! NewsListItemView
+//        cell.selectionStyle = .none
+//        cell.configure(model: items[indexPath.row])
+        NewsListItemViewInteractor().getNewsItem(newItem: items[indexPath.row])
+        return NewsListItemViewRouter().createNewsItem(tableView: tableView, indexPath: indexPath)
     }
 }
