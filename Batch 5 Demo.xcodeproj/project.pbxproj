@@ -41,6 +41,10 @@
 		935B97FF27DA463200EAF9A8 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B97FB27DA463200EAF9A8 /* DetailInteractor.swift */; };
 		935B980027DA463200EAF9A8 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B97FC27DA463200EAF9A8 /* DetailRouter.swift */; };
 		935B980327DA7DF100EAF9A8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 935B980527DA7DF100EAF9A8 /* Localizable.strings */; };
+		935B980827DB8A5C00EAF9A8 /* UrlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B980727DB8A5C00EAF9A8 /* UrlRequest.swift */; };
+		935B980A27DB8AD400EAF9A8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B980927DB8AD400EAF9A8 /* Network.swift */; };
+		935B980D27DB935500EAF9A8 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 935B980C27DB935500EAF9A8 /* SwiftyBeaver */; };
+		935B981027DB9C0300EAF9A8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B980F27DB9C0300EAF9A8 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +103,9 @@
 		935B97FB27DA463200EAF9A8 /* DetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		935B97FC27DA463200EAF9A8 /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		935B980427DA7DF100EAF9A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		935B980727DB8A5C00EAF9A8 /* UrlRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlRequest.swift; sourceTree = "<group>"; };
+		935B980927DB8AD400EAF9A8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		935B980F27DB9C0300EAF9A8 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935B980D27DB935500EAF9A8 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +222,7 @@
 				9356243027D6956500714EA0 /* App Support */,
 				9356242F27D6955D00714EA0 /* Views */,
 				3102F8FD27D7F8D700226B60 /* Entities */,
+				935B980627DB8A4000EAF9A8 /* Datasource */,
 				3102F8F027D7B15600226B60 /* WebService */,
 			);
 			path = "Batch 5 Demo";
@@ -282,6 +291,24 @@
 			path = NewsDetailView;
 			sourceTree = "<group>";
 		};
+		935B980627DB8A4000EAF9A8 /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				935B980F27DB9C0300EAF9A8 /* Repository.swift */,
+				935B980E27DB972F00EAF9A8 /* Network */,
+			);
+			path = Datasource;
+			sourceTree = "<group>";
+		};
+		935B980E27DB972F00EAF9A8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				935B980727DB8A5C00EAF9A8 /* UrlRequest.swift */,
+				935B980927DB8AD400EAF9A8 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,6 +325,9 @@
 			dependencies = (
 			);
 			name = "Batch 5 Demo";
+			packageProductDependencies = (
+				935B980C27DB935500EAF9A8 /* SwiftyBeaver */,
+			);
 			productName = "Batch 5 Demo";
 			productReference = 935623FB27D6951F00714EA0 /* Batch 5 Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -370,6 +400,9 @@
 				Base,
 			);
 			mainGroup = 935623F227D6951F00714EA0;
+			packageReferences = (
+				935B980B27DB935500EAF9A8 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+			);
 			productRefGroup = 935623FC27D6951F00714EA0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -422,6 +455,7 @@
 				9356240327D6951F00714EA0 /* ViewController.swift in Sources */,
 				3102F8F827D7C4E500226B60 /* NewsListCountService.swift in Sources */,
 				3102F8FA27D7DEC200226B60 /* Exception.swift in Sources */,
+				935B981027DB9C0300EAF9A8 /* Repository.swift in Sources */,
 				3102F8EF27D7B12F00226B60 /* UISearchListViewPresenter.swift in Sources */,
 				3102F90727D9005300226B60 /* NewsListViewInteractor.swift in Sources */,
 				3102F91227D93E9200226B60 /* NewsListViewRouter.swift in Sources */,
@@ -438,8 +472,10 @@
 				3102F8FC27D7F53F00226B60 /* NewsListItemService.swift in Sources */,
 				935B97FF27DA463200EAF9A8 /* DetailInteractor.swift in Sources */,
 				9356240127D6951F00714EA0 /* SceneDelegate.swift in Sources */,
+				935B980827DB8A5C00EAF9A8 /* UrlRequest.swift in Sources */,
 				9356243327D6959B00714EA0 /* Constants.swift in Sources */,
 				3102F90127D80F6600226B60 /* NewsListingService.swift in Sources */,
+				935B980A27DB8AD400EAF9A8 /* Network.swift in Sources */,
 				935B97FE27DA463200EAF9A8 /* NewsDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -796,6 +832,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		935B980B27DB935500EAF9A8 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		935B980C27DB935500EAF9A8 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 935B980B27DB935500EAF9A8 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 935623F327D6951F00714EA0 /* Project object */;
 }

@@ -8,11 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var m = MyClass()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Application-Title".localized()
+        
+//        m.z()
+        m.z2 { newsItems in
+            print("#####")
+            print("newsItems: \(newsItems)")
+        }
     }
 
 
