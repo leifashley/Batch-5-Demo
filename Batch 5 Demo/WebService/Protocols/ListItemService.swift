@@ -6,6 +6,6 @@
 //
 
 import Combine
-protocol ListItemService {
-    func getItem<T: Decodable>(id: Int, placeholder: T, completion: @escaping (T) -> ()) -> AnyCancellable?
-}
+//protocol ListItemService {
+//    func getItem<T: Decodable>(id: Int, placeholder: T, completion: @escaping (T) -> ()) -> AnyCancellable?
+//}

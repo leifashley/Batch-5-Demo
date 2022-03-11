@@ -9,7 +9,7 @@ import Combine
 import UIKit
 
 protocol UISearchListViewInteractor {
-    func setup(service: ListingService)
+    func setup(service: NewsListingService)
     func assign(router: UISearchListViewRouter)
     func assignListingServiceReaction<T: Decodable>
         (keywords: String?, start: Int, limit: Int, entityType: T.Type,

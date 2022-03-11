@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 
-class NewsListingService: ListingService {
+class NewsListingService {
     let session: URLSession
     let io: DispatchQueue
     
