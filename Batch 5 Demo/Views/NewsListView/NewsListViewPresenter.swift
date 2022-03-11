@@ -36,7 +36,7 @@ class NewsListViewPresenter: NSObject, UISearchListViewPresenter {
     }
     
     func getTitle() -> String {
-        return R.string("NewsTitle")
+        return "ViewTitle-News".localized()
     }
     
     func setTableView(tableView: UITableView) {

@@ -9,10 +9,10 @@ import Combine
 import UIKit
 
 class NewsListViewInteractor: NSObject, UISearchListViewInteractor {
-    private var service: ListingService? = nil
+    private var service: NewsListingService? = nil
     private var router: UISearchListViewRouter? = nil
     
-    func setup(service: ListingService) {
+    func setup(service: NewsListingService) {
         self.service = service
     }
     

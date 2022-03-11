@@ -7,6 +7,6 @@
 
 import Combine
 
-protocol ListCountService {
-    func getListCount(completion: @escaping (Int)->() ) -> AnyCancellable?
-}
+//protocol ListCountService {
+//    func getListCount(completion: @escaping (Int)->() ) -> AnyCancellable?
+//}
