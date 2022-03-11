@@ -58,9 +58,9 @@ extension NewsListViewPresenter: UISearchBarDelegate {
 }
 
 extension NewsListViewPresenter: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return NewsListItemView.cellHeight
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return NewsListItemView.cellHeight
+//    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let item = items[indexPath.row]
@@ -77,13 +77,15 @@ extension NewsListViewPresenter: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: NewsListItemView
-        if let xcell = tableView.dequeueReusableCell(withIdentifier: cellId) as? NewsListItemView {
-            cell = xcell
-        } else {
-            cell = NewsListItemView(style: .default, reuseIdentifier: cellId)
-        }
-        cell.model = items[indexPath.row]
+//        let cell: NewsListItemView
+//        if let xcell = tableView.dequeueReusableCell(withIdentifier: "NewsListItemView") as? NewsListItemView {
+//            cell = xcell
+//        } else {
+//            cell = NewsListItemView(style: .default, reuseIdentifier: "NewsListItemView")
+//        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListItemView", for: indexPath) as! NewsListItemView
+        cell.selectionStyle = .none
+        cell.configure(model: items[indexPath.row])
         return cell
     }
 }
