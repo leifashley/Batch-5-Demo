@@ -9,25 +9,21 @@ import Foundation
 
 class NewsListItemViewPresenter {
     
-    var router: NewsListItemViewRouter?
-    weak var view : NewsListItemView?
-    var interactor: NewsListItemViewInteractor?
-    var newsItem: NewsItem?
-    
-    func getNewsItemFromInteractor(){
-        interactor?.getNewsItem(newItem: nil)
-    }
-    
-    func configureView(view: NewsListItemView){
-        view.presenter.view = view
-        view.presenter.router = NewsListItemViewRouter()
-        view.presenter.interactor = NewsListItemViewInteractor()
-        view.presenter.interactor?.presenter = view.presenter
-    }
-}
+    weak var view : NewsListItemView? = nil
+    private var router: NewsListItemViewRouter? = nil
+    private var interactor: NewsListItemViewInteractor? = nil
 
-extension NewsListItemViewPresenter: NewsListItemViewOutputInteractorProtocal {
-    func didGetNewItem(newsItem: NewsItem) {
-        view?.configure(model: newsItem)
+    func assign(router: NewsListItemViewRouter) {
+        self.router = router
+    }
+    
+    func assign(interactor: NewsListItemViewInteractor) {
+        self.interactor = interactor
+    }
+    
+    func loadNewsItem(){
+        if let newsItem = interactor?.getNewsItemModel() {
+            view?.configure(model: newsItem)
+        }
     }
 }

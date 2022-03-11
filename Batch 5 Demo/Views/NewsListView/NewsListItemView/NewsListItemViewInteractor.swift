@@ -7,22 +7,16 @@
 
 import Foundation
 
-protocol NewsListItemViewInputInteractorProtocal {
+class NewsListItemViewInteractor {
     
-}
-
-protocol NewsListItemViewOutputInteractorProtocal: AnyObject {
-    func didGetNewItem(newsItem: NewsItem)
-}
-
-class NewsListItemViewInteractor : NewsListItemViewInputInteractorProtocal {
+    private var newsItem: NewsItem? = nil
     
-    weak var presenter : NewsListItemViewOutputInteractorProtocal?
+    func assign(newsItem: NewsItem) {
+        self.newsItem = newsItem
+    }
     
-    func getNewsItem(newItem: NewsItem?){
-        if let newItem = newItem{
-            presenter?.didGetNewItem(newsItem: newItem)
-        }
+    func getNewsItemModel() -> NewsItem{
+        return newsItem ?? NewsItem()
     }
 }
 

@@ -90,7 +90,6 @@ extension NewsListViewPresenter: UITableViewDataSource {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListItemView", for: indexPath) as! NewsListItemView
 //        cell.selectionStyle = .none
 //        cell.configure(model: items[indexPath.row])
-        NewsListItemViewInteractor().getNewsItem(newItem: items[indexPath.row])
-        return NewsListItemViewRouter().createNewsItem(tableView: tableView, indexPath: indexPath)
+        return NewsListItemViewRouter().createNewsItem(tableView: tableView, indexPath: indexPath, newsItem: items[indexPath.row])
     }
 }
