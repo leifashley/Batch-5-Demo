@@ -55,6 +55,10 @@ extension NewsListViewPresenter: UISearchBarDelegate {
             self.tableView?.reloadData()
         }
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
 }
 
 extension NewsListViewPresenter: UITableViewDelegate {
