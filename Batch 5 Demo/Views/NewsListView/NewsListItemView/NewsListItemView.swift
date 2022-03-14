@@ -48,7 +48,7 @@ class NewsListItemView: UITableViewCell {
     func configure(model: NewsItem?){
         imageLoadingHandler = model?.imageUrl.assignWebImage(to: \.imageIcon , on: self)
         titleLbl.text = model?.title
-        timeLbl.text = model?.publishedAt.getFormattedDate(format: "dd/MM/yy HH:mm")
+        timeLbl.text = model?.publishedAt.ago()
         newsSiteLbl.text = model?.newsSite
     }
     
