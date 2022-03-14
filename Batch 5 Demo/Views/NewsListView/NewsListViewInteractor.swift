@@ -30,11 +30,16 @@ class NewsListViewInteractor: UISearchListViewInteractor {
         }
     }    
     
-    func makeRoute(model: Any) -> UIViewController {
+    func makeRoute(model: Any) -> UIViewController? {
         guard let router = router else {
             fatalError("critical: no router available")
         }
         
-        return router.makeDetailViewController(model: model)
+        guard let detailController = router.makeDetailViewController(model: model) else {
+            print("No detail controller")
+            return  nil
+        }
+        
+        return detailController
     }
 }

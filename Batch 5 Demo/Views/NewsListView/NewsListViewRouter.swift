@@ -20,9 +20,10 @@ class NewsListViewRouter: UISearchListViewRouter {
         return viewController
     }
     
-    func makeDetailViewController(model: Any) -> UIViewController {
+    func makeDetailViewController(model: Any) -> UIViewController? {
         guard let model = model as? NewsItem else {
-            fatalError("unexpected data model type")
+            print("Incorrect data model type")
+            return nil
         }
         
         let viewController = NewsDetailView()
