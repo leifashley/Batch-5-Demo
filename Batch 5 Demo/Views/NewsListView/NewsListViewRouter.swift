@@ -8,8 +8,7 @@ import UIKit
 
 class NewsListViewRouter: UISearchListViewRouter {
     func makeListViewController(interactor: UISearchListViewInteractor) -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: UISearchListViewController.storyboardId) as? UISearchListViewController else {
+        guard let viewController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: UISearchListViewController.storyboardId) as? UISearchListViewController else {
             fatalError("unexpected view controller type")
         }
         

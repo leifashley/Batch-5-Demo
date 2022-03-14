@@ -7,19 +7,25 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    @IBOutlet weak var NewsButton: UIButton!
+class ViewController: UIViewController {
+    var m = MyClass()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Application-Title".localized()
+        
+//        m.z()
+        m.z2 { newsItems in
+            print("#####")
+            print("newsItems: \(newsItems)")
+        }
     }
 
 
     @IBAction func onClick(_ sender: UIButton) {
         let interactor = NewsListViewInteractor()
-        interactor.setup(repository: NewsItemsRespository())
+        interactor.setup(service: NewsListingService())
         let router = NewsListViewRouter()
         let viewController = router.makeListViewController(interactor: interactor)
         navigationController?.pushViewController(viewController, animated: true)

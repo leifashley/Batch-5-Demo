@@ -9,10 +9,18 @@ import Combine
 import UIKit
 
 protocol UISearchListViewInteractor {
-    func setup(service: NewsListingService)
+    func setup(repository: NewsItemsRespository)
+    
+    func getNewsItems(searchString: String?, completion: @escaping ([NewsItem]) -> ()) 
+    
     func assign(router: UISearchListViewRouter)
-    func assignListingServiceReaction<T: Decodable>
-        (keywords: String?, start: Int, limit: Int, entityType: T.Type,
-         completion: @escaping ([T]) ->()) -> AnyCancellable?
     func makeRoute(model: Any) -> UIViewController
+}
+
+extension UISearchListViewInteractor {
+    //TODO: impl isn't overriding the extension method, not sure why. Taking this out for now
+//    func getNewsItems(searchString: String? = nil, completion: @escaping ([NewsItem]) -> ()) {
+//        //Making searchString optional
+//        print("ERROR: UISearchListViewInteractor.getNewsItems should have been overridden")
+//    }
 }
