@@ -10,17 +10,24 @@ import UIKit
 
 class NewsListItemViewRouter {
     
-    func createNewsItem(tableView: UITableView, indexPath: IndexPath, newsItem: NewsItem) -> NewsListItemView{
+    func createNewsItem(tableView: UITableView, indexPath: IndexPath, newsItem: NewsItem) -> UITableViewCell {
         let presenter = NewsListItemViewPresenter()
         let interactor = NewsListItemViewInteractor()
+        
         presenter.assign(interactor: interactor)
         presenter.assign(router: self)
         interactor.assign(newsItem: newsItem)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListItemView", for: indexPath) as! NewsListItemView
-        cell.selectionStyle = .none
-        presenter.view = cell
-        cell.presenter = presenter
-        cell.showNewsItem()
-        return cell
+        
+        var cell: NewsListItemView?
+        if let c = tableView.dequeueReusableCell(withIdentifier: "NewsListItemView", for: indexPath) as? NewsListItemView {
+            cell = c
+            
+            c.selectionStyle = .none
+            presenter.view = c
+            c.presenter = presenter
+            c.showNewsItem()
+        }
+        
+        return cell ?? UITableViewCell()
     }
 }

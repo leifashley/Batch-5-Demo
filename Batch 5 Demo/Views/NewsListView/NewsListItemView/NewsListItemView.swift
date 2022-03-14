@@ -9,7 +9,6 @@ import Combine
 import UIKit
 
 class NewsListItemView: UITableViewCell {
-   
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var splineView: UIView!
     @IBOutlet weak var iconView: UIImageView!
@@ -18,9 +17,12 @@ class NewsListItemView: UITableViewCell {
     @IBOutlet weak var newsSiteLbl: UILabel!
     
     private var imageLoadingHandler: AnyCancellable? = nil
-    @IBInspectable public var imageIcon: UIImage {
-        get { iconView.image ?? UIImage() }
-        set { iconView.image = newValue }
+    
+    public let defaultImage = UIImage(systemName: "photo") ?? UIImage()
+    public var imageIcon: UIImage? {
+        didSet {
+            setImage()
+        }
     }
     
     var presenter : NewsListItemViewPresenter?
@@ -28,34 +30,50 @@ class NewsListItemView: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.titleLbl.font = .notoSansSemibold(size: 18)
-        self.titleLbl.textColor = .textPrimaryColor
+        titleLbl.font = .notoSansSemibold(size: 18)
+        titleLbl.textColor = .textPrimaryColor
         
-        self.timeLbl.font = .notoSansRegular(size: 10)
-        self.timeLbl.textColor = .textPrimaryColor
+        timeLbl.font = .notoSansRegular(size: 10)
+        timeLbl.textColor = .textPrimaryColor
         
-        self.newsSiteLbl.font = .notoSansRegular(size: 10)
-        self.newsSiteLbl.textColor = .textPrimaryColor
+        newsSiteLbl.font = .notoSansRegular(size: 10)
+        newsSiteLbl.textColor = .textPrimaryColor
         
-        self.splineView.backgroundColor = .splinesColor
+        splineView.backgroundColor = .splinesColor
         
+        iconView.image = defaultImage
     }
     
-    func showNewsItem(){
+    func showNewsItem() {
         presenter?.loadNewsItem()
     }
     
-    func configure(model: NewsItem?){
-        imageLoadingHandler = model?.imageUrl.assignWebImage(to: \.imageIcon , on: self)
+    func configure(model: NewsItem?) {
+        if imageIcon == nil {
+            if let imageUrl = model?.imageUrl, let url = URL(string: imageUrl) {
+                print("ImageURL Loading: \(imageUrl)")
+                imageLoadingHandler = url.assignWebImage(to: \.imageIcon, on: self)
+            }
+        } else {
+            setImage()
+        }
+        
         titleLbl.text = model?.title
         timeLbl.text = model?.publishedAt.getFormattedDate(format: "dd/MM/yy HH:mm")
         newsSiteLbl.text = model?.newsSite
     }
     
+    func setImage() {
+        if imageIcon == nil {
+            iconView.image = defaultImage
+        } else {
+            iconView.image = imageIcon
+        }
+    }
     
 
 ////
-////    @IBInspectable public var textBanner: String? {
+////     public var textBanner: String? {
 ////        get { bannerView.text }
 ////        set { bannerView.text = newValue }
 ////    }

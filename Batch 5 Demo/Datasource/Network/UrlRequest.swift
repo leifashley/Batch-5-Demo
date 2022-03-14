@@ -23,13 +23,15 @@ public protocol Request {
     var contentType: String { get }
     var body: [String: Any]? { get }
     var headers: [String: String]? { get }
+    
+    var queryItems: [URLQueryItem]? { get }
 }
 
 extension Request {
     // Defaults
     var method: HTTPMethod { return .get }
     var contentType: String { return "application/json"}
-    var queryParams: [String: String]? { return nil }
+//    var queryItems: [URLQueryItem]? { get }
     var body: [String: Any]? { return nil }
     var headers: [String: String]? { return nil }
 }
@@ -48,6 +50,11 @@ extension Request {
         guard var urlComponents = URLComponents(string: baseURL) else { return nil }
         
         urlComponents.path = "\(urlComponents.path)\(path)"
+        
+        if let q = queryItems {
+            urlComponents.queryItems = q
+        }
+        
         guard let finalURL = urlComponents.url else { return nil }
         
         var request = URLRequest(url: finalURL)

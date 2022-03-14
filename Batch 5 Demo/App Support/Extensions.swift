@@ -22,6 +22,7 @@ extension UIColor {
         let blue  = CGFloat(code & 0xFF)
         self.init(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: 1.0)
     }
+    
     convenience init(webColor: String) {
         var code = webColor
         if code.hasPrefix("#") {
@@ -31,14 +32,22 @@ extension UIColor {
         self.init(webColorCode: color)
     }
     
+    static func | (lightMode: UIColor, darkMode: UIColor) -> UIColor {
+        guard #available(iOS 13.0, *) else { return lightMode }
+        
+        return UIColor { (traitCollection) -> UIColor in
+            return traitCollection.userInterfaceStyle == .dark ? darkMode : lightMode
+        }
+    }
+    
 //    //universal
 //    static let primaryColor = UIColor(red: 232/255, green: 70/255, blue: 48/255, alpha: 1.0)
     
     //splines
     static let splinesColor = UIColor(named: "SplinesColor")
-    
+
     //text
-    static let textPrimaryColor = UIColor(named: "TextPrimaryColor")
+    static let textPrimaryColor = UIColor(named: "TextPrimaryColor") ?? (UIColor.white | UIColor.black)
     static let textSecondaryColor = UIColor(named: "TextSecondaryColor")
     
     //App background Color
@@ -74,19 +83,18 @@ extension Date {
         }
 }
 
-extension String {
-    func assignWebImage<Root>(session: URLSession = .shared, to keypath: ReferenceWritableKeyPath<Root, UIImage>, on object: Root) -> AnyCancellable? {
-        guard let url = URL(string: self) else {
-            NSLog("rare exception: \(Exception.invalidURL)")
-            return nil
-        }
-        return session.dataTaskPublisher(for: url)
+extension URL {
+    func assignWebImage<Root>(session: URLSession = .shared, to keypath: ReferenceWritableKeyPath<Root, UIImage?>, on object: Root) -> AnyCancellable {
+        return session.dataTaskPublisher(for: self)
             .tryMap { $0.data }
             .replaceError(with: Data())
             .compactMap { UIImage(data: $0) }
             .receive(on: DispatchQueue.main)
             .assign(to: keypath, on: object)
     }
+}
+
+extension String {
     func asURLRequest() -> URLRequest? {
         if let url = URL(string: self) {
             return URLRequest(url: url)
@@ -128,7 +136,7 @@ extension UIViewController{
     func setupNavBar() {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.barTintColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textPrimaryColor!, .font: UIFont.notoSansSemibold(size: 16)]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textPrimaryColor, .font: UIFont.notoSansSemibold(size: 16)]
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

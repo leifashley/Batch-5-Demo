@@ -23,7 +23,7 @@ enum NetworkRequestError: LocalizedError, Equatable {
 }
 
 struct NetworkDispatcher {
-    let urlSession: URLSession!
+    let urlSession: URLSession
     
     public init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
@@ -50,15 +50,11 @@ struct NetworkDispatcher {
             .mapError { error in
                 handleError(error)
             }
-            // And finally, expose our publisher
             .eraseToAnyPublisher()
     }
 }
 
 extension NetworkDispatcher {
-/// Parses a HTTP StatusCode and returns a proper error
-    /// - Parameter statusCode: HTTP status code
-    /// - Returns: Mapped Error
     private func httpError(_ statusCode: Int) -> NetworkRequestError {
         switch statusCode {
         case 400: return .badRequest
@@ -95,6 +91,7 @@ struct APIClient {
     var baseURL: String
     var networkDispatcher: NetworkDispatcher
     
+    
     init(baseURL: String, networkDispatcher: NetworkDispatcher = NetworkDispatcher()) {
         self.baseURL = baseURL
         self.networkDispatcher = networkDispatcher
@@ -112,77 +109,6 @@ struct APIClient {
     }
 }
 
-// Model
-struct Todo: Codable {
-   var title: String
-   var completed: Bool
-}
 
-struct FindTodosRequest: Request {
-     typealias ReturnType = [Todo]
-     var path: String = "/todos"
-}
 
-struct FindNewsItemsRequest: Request {
-    typealias ReturnType = [NewsItem]
-    var path: String = "/" + Constants.Network.apiVersion + "/" + Constants.Network.apiNews
-}
 
-class MyClass {
-    //TODO: need to clear this out to prevent memory creep, but the method for doing so is mixed, resolve later
-    private var cancellables = [AnyCancellable]()
-    
-    func z2(completion: (FindNewsItemsRequest.ReturnType) -> ()) {
-        let apiClient = APIClient(baseURL: Constants.Network.hostName)
-        
-        let request = FindNewsItemsRequest()
-        apiClient.dispatch(request: request)
-            .print("newItems Request")
-        //TODO: extend publishers to add a generic way to log all this
-//            .handleEvents(receiveSubscription: { _ in
-//                print("- receiveSubscription")
-//            }, receiveOutput: { value in
-//                print("- receiveOutput")
-//            }, receiveCompletion: { _ in
-//                print("- receiveCompletion")
-//            }, receiveCancel: {
-//                print("- receiveCancel")
-//            }, receiveRequest: { demand in
-//                print("- receiveRequest")
-//            })
-            .sink(receiveCompletion: { completion in
-                print("receiveCompletion: \(completion)")
-            }, receiveValue: { newItems in
-                print("newItems: \(newItems)")
-            })
-            .store(in: &cancellables)
-    }
-    
-    func z() {
-        let apiClient = APIClient(baseURL: "https://jsonplaceholder.typicode.com")
-        
-        let request = FindTodosRequest()
-        apiClient.dispatch(request: request)
-//            .handleEvents(receiveSubscription: { _ in
-//                print("- receiveSubscription")
-//            }, receiveOutput: { value in
-//                print("- receiveOutput")
-//            }, receiveCompletion: { _ in
-//                print("- receiveCompletion")
-//            }, receiveCancel: {
-//                print("- receiveCancel")
-//            }, receiveRequest: { demand in
-//                print("- receiveRequest")
-//            })
-            .sink(receiveCompletion: { completion in
-                print("receiveCompletion: \(completion)")
-            }, receiveValue: { todo in
-                print("Todo: \(todo)")
-            })
-//            .sink(receiveCompletion: { _ in },
-//                  receiveValue: { value in
-//                    print(value)
-//                })
-            .store(in: &cancellables)
-    }
-}

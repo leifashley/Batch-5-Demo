@@ -41,19 +41,22 @@ class NewsListViewPresenter: NSObject, UISearchListViewPresenter {
     
     func setTableView(tableView: UITableView) {
         self.tableView = tableView
-        handler = interactor?.assignListingServiceReaction(keywords: nil, start: -1, limit: pageSize, entityType: NewsItem.self) { entries in
-            self.items = entries
+        
+        interactor?.getNewsItems(searchString: nil, completion: { newsItems in
+            self.items = newsItems
             self.tableView?.reloadData()
-        }
+        })
     }
 }
 
 extension NewsListViewPresenter: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        handler = interactor?.assignListingServiceReaction(keywords: searchText, start: -1, limit: pageSize, entityType: NewsItem.self) { entries in
-            self.items = entries
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchString: String) {
+        //TODO: replace with network call or optimized search
+        
+        interactor?.getNewsItems(searchString: searchString, completion: { newsItems in
+            self.items = newsItems
             self.tableView?.reloadData()
-        }
+        })
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -87,7 +90,8 @@ extension NewsListViewPresenter: UITableViewDataSource {
 //        } else {
 //            cell = NewsListItemView(style: .default, reuseIdentifier: "NewsListItemView")
 //        }
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListItemView", for: indexPath) as! NewsListItemView
+            ///TODO: no '!' in code
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsListItemView", for: indexPath) as#!# NewsListItemView
 //        cell.selectionStyle = .none
 //        cell.configure(model: items[indexPath.row])
         return NewsListItemViewRouter().createNewsItem(tableView: tableView, indexPath: indexPath, newsItem: items[indexPath.row])

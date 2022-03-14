@@ -8,7 +8,6 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
     @IBOutlet weak var NewsButton: UIButton!
     
     override func viewDidLoad() {
@@ -20,7 +19,7 @@ class MainViewController: UIViewController {
 
     @IBAction func onClick(_ sender: UIButton) {
         let interactor = NewsListViewInteractor()
-        interactor.setup(service: NewsListingService())
+        interactor.setup(repository: NewsItemsRespository())
         let router = NewsListViewRouter()
         let viewController = router.makeListViewController(interactor: interactor)
         navigationController?.pushViewController(viewController, animated: true)

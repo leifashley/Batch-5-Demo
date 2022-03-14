@@ -8,21 +8,27 @@
 import Combine
 import UIKit
 
-class NewsListViewInteractor: NSObject, UISearchListViewInteractor {
-    private var service: NewsListingService? = nil
+class NewsListViewInteractor: UISearchListViewInteractor {
+    public var repo: NewsItemsRespository? = nil
     private var router: UISearchListViewRouter? = nil
     
-    func setup(service: NewsListingService) {
-        self.service = service
+    func setup(repository: NewsItemsRespository) {
+        self.repo = repository
     }
     
     func assign(router: UISearchListViewRouter) {
         self.router = router
     }
     
-    func assignListingServiceReaction<T: Decodable>(keywords: String?, start: Int, limit: Int, entityType: T.Type, completion: @escaping ([T]) -> ()) -> AnyCancellable? {
-        return service?.getList(keywords: keywords, start: start, limit: limit, entityType: entityType, completion: completion)
-    }
+    func getNewsItems(searchString: String? = nil, completion: @escaping ([NewsItem]) -> ()) {
+        if let repo = repo {
+            repo.getAll(searchString: searchString) { newsItems in
+                completion(newsItems)
+            }
+        } else {
+            print("ERROR: repo was nil")
+        }
+    }    
     
     func makeRoute(model: Any) -> UIViewController {
         guard let router = router else {
