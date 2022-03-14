@@ -23,7 +23,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROR-6L-zPb">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="backgroundColor" name="AppNavigationBarBackground"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -43,7 +43,7 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="AccentColor">
+        <namedColor name="AppNavigationBarBackground">
             <color red="0.88627450980392153" green="0.97254901960784312" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
