@@ -9,6 +9,8 @@ import Combine
 import UIKit
 
 class NewsListViewInteractor: UISearchListViewInteractor {
+    let title = "NewsListViewInteractor"
+    
     public var repo: NewsItemsRespository? = nil
     private var router: UISearchListViewRouter? = nil
     
@@ -26,15 +28,18 @@ class NewsListViewInteractor: UISearchListViewInteractor {
                 completion(newsItems)
             }
         } else {
-            print("ERROR: repo was nil")
+            log.error(title: "", "repo was nil", error: AppError.unknownError)
         }
     }    
     
     func makeRoute(model: Any) -> UIViewController {
         guard let router = router else {
-            fatalError("critical: no router available")
+            log.error(title: "\(className(NewsListViewInteractor.self, function: #function))", "no router available, but it should have been set", error: AppError.unknownError)
+            return UIViewController()
         }
         
         return router.makeDetailViewController(model: model)
     }
 }
+
+

@@ -21,6 +21,5 @@ extension UISearchListViewInteractor {
     //TODO: impl isn't overriding the extension method, not sure why. Taking this out for now
 //    func getNewsItems(searchString: String? = nil, completion: @escaping ([NewsItem]) -> ()) {
 //        //Making searchString optional
-//        print("ERROR: UISearchListViewInteractor.getNewsItems should have been overridden")
 //    }
 }
