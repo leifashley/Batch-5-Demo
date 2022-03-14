@@ -20,6 +20,8 @@ protocol Repository {
 }
 
 class NewsItemsRespository: Repository {
+    let title = "NewsItemsRespository"
+    
     typealias RepositoryType = NewsItem
     
     struct FindNewsItemsRequest: Request {
@@ -32,6 +34,7 @@ class NewsItemsRespository: Repository {
     public var cancellable: AnyCancellable?
     
     public func getAll(searchString: String? = nil, completion: @escaping ([NewsItem]) -> ()) {
+        let ftitle = "\(title).getAll"
         let apiClient = APIClient(baseURL: Constants.Network.hostName)
         
         var request = FindNewsItemsRequest()
@@ -45,42 +48,42 @@ class NewsItemsRespository: Repository {
         cancellable = apiClient.dispatch(request: request)
 //            .print("newItems Request")
 //            .handleEvents(receiveSubscription: { _ in
-//                print("- receiveSubscription")
+//                log.debug("- receiveSubscription")
 //            }, receiveOutput: { value in
-//                print("- receiveOutput")
+//                log.debug("- receiveOutput")
 //            }, receiveCompletion: { _ in
-//                print("- receiveCompletion")
+//                log.debug("- receiveCompletion")
 //            }, receiveCancel: {
-//                print("- receiveCancel")
+//                log.debug("- receiveCancel")
 //            }, receiveRequest: { demand in
-//                print("- receiveRequest")
+//                log.debug("- receiveRequest")
 //            })
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
-                print("receiveCompletion: \(completion)")
+                log.info(title: ftitle, "receiveCompletion: \(completion)")
             }, receiveValue: { newItems in
-                print("newItems count: \(newItems.count)")
+                log.info(title: ftitle, "newItems count: \(newItems.count)")
                 completion(newItems)
             })
     }
     
     func get(identifier: Int) -> NewsItem? {
-        print("Error - not implemented")
+        log.error(title: title, "get() not implemented", error: AppError.unknownError)
         return nil
     }
     
     func create(a: NewsItem) -> Bool {
-        print("Error - not implemented")
+        log.error(title: title, "create() not implemented", error: AppError.unknownError)
         return false
     }
     
     func update(a: NewsItem) -> Bool {
-        print("Error - not implemented")
+        log.error(title: title, "update() not implemented", error: AppError.unknownError)
         return false
     }
     
     func delete(a: NewsItem) -> Bool {
-        print("Error - not implemented")
+        log.error(title: title, "delete() not implemented", error: AppError.unknownError)
         return false
     }
 }

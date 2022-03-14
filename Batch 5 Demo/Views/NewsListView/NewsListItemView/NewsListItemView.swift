@@ -51,7 +51,7 @@ class NewsListItemView: UITableViewCell {
     func configure(model: NewsItem?) {
         if imageIcon == nil {
             if let imageUrl = model?.imageUrl, let url = URL(string: imageUrl) {
-                print("ImageURL Loading: \(imageUrl)")
+                log.debug("ImageURL Loading: \(imageUrl)")
                 imageLoadingHandler = url.assignWebImage(to: \.imageIcon, on: self)
             }
         } else {
