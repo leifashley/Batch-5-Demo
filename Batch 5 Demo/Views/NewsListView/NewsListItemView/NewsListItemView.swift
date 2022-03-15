@@ -18,7 +18,7 @@ class NewsListItemView: UITableViewCell {
     
     private var imageLoadingHandler: AnyCancellable? = nil
     
-    public let defaultImage = UIImage(systemName: "photo") ?? UIImage()
+    public let defaultImage = UIImage(named: "newsIconPlaceHolder")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
     public var imageIcon: UIImage? {
         didSet {
             setImage()
@@ -66,6 +66,8 @@ class NewsListItemView: UITableViewCell {
     func setImage() {
         if imageIcon == nil {
             iconView.image = defaultImage
+            iconView.contentMode = .center
+            iconView.addSolidColor(color: (.splinesColor ?? .red))
         } else {
             iconView.image = imageIcon
         }
