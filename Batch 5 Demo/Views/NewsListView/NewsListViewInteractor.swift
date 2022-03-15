@@ -33,13 +33,15 @@ class NewsListViewInteractor: UISearchListViewInteractor {
     }    
     
     func makeRoute(model: Any) -> UIViewController? {
+        let ftitle = "\(className(NewsListViewInteractor.self, function: #function))"
+        
         guard let router = router else {
-            log.error(title: "\(className(NewsListViewInteractor.self, function: #function))", "no router available, but it should have been set", error: AppError.unknownError)
+            log.error(title: ftitle, "no router available, but it should have been set", error: AppError.unknownError)
             return UIViewController()
         }
         
         guard let detailController = router.makeDetailViewController(model: model) else {
-            print("No detail controller")
+            log.error(title: ftitle, "No detail controller", error: AppError.unknownError)
             return  nil
         }
         
