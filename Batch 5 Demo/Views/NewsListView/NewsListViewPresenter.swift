@@ -51,7 +51,7 @@ class NewsListViewPresenter: NSObject, UISearchListViewPresenter {
 
 extension NewsListViewPresenter: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchString: String) {
-        //TODO: replace with network call or optimized search
+        //TODO: replace with network call or optimized search, leaving this TODO for now
         
         interactor?.getNewsItems(searchString: searchString, completion: { newsItems in
             self.items = newsItems

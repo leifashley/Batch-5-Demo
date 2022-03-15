@@ -17,17 +17,12 @@ struct NewsItem: Codable {
     let publishedAt: Date
     let updatedAt: Date
     let featured: Bool
-    //let launches: [Int]
-    //let events: [Int]
     
     init(id i: Int = -1, title t: String = "", url u: String = "",
          imageUrl img: String = "", newsSite n: String = "", summary s: String = "",
-         publishedAt pat: Date = Date(), updatedAt uat: Date = Date(), featured f: Bool = false
-    //   ,  launches l: [Int] = [], events e: [Int] = []
-    ) {
+         publishedAt pat: Date = Date(), updatedAt uat: Date = Date(), featured f: Bool = false) {
         id = i; title = t; url = u
         imageUrl = img; newsSite = n; summary = s
         publishedAt = pat; updatedAt = uat; featured = f
-        //launches = l; events = e
     }
 }
