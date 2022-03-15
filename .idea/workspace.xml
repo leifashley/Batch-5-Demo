@@ -6,24 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6e287ee5-4b8a-4e26-b24d-ae4ef3b37b49" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/xcode.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/xcode.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/App Support/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/App Support/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/App Support/SceneDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/App Support/SceneDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/Datasource/Network/UrlRequest.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/Datasource/Network/UrlRequest.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/Datasource/Repository.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/Datasource/Repository.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/Entities/NewsItem.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/Entities/NewsItem.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/Views/NewsDetailView/DetailInteractor.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/Views/NewsDetailView/DetailInteractor.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/Views/NewsListView/NewsListViewPresenter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/Views/NewsListView/NewsListViewPresenter.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/Views/NewsListView/NewsListViewRouter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/Views/NewsListView/NewsListViewRouter.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/Views/NewsListView/Protocols/UISearchListViewInteractor.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/Views/NewsListView/Protocols/UISearchListViewInteractor.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/WebService/Exception.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/WebService/Implementations/NewsListCountService.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/WebService/Implementations/NewsListItemService.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/WebService/Implementations/NewsListingService.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/WebService/Protocols/ListCountService.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/WebService/Protocols/ListItemService.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/WebService/Protocols/ListingService.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/Views/Main View/MainViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/Views/Main View/MainViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Batch 5 DemoTests/Batch_5_DemoTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 DemoTests/Batch_5_DemoTests.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Batch 5 DemoTests/Main/MainViewControllerTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 DemoTests/Main/MainViewControllerTests.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Batch 5 DemoTests/Network/NewsListingWebServiceTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 DemoTests/Network/NewsListingWebServiceTests.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647314689113</updated>
       <workItem from="1647314693639" duration="3887000" />
-      <workItem from="1647355186869" duration="934000" />
+      <workItem from="1647355186869" duration="2224000" />
     </task>
     <servers />
   </component>

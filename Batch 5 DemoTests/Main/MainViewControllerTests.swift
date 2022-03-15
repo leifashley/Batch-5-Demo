@@ -27,17 +27,19 @@ class MainViewControllerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testMainViewController_HasEnterButtonAndAction() throws {
-        // Arrange
-        let newsButton: UIButton = try XCTUnwrap(sut.NewsButton, "News button does not have an outlet")
-        
-        // Act
-        let newsButtonActions = try XCTUnwrap(newsButton.actions(forTarget: sut, forControlEvent: .touchUpInside), "News button does not have any action assigned to it")
-        
-        // Assert
-        XCTAssertEqual(newsButtonActions.count, 1)
-        XCTAssertEqual(newsButtonActions.first, "onClick:", "No action with a name onClick assigned to newsButton")
-    }
+    //TODO: button removed, entire view is tappable. Needs to be replaced with UITapGestureRecognizer test
+//    func testMainViewController_HasEnterButtonAndAction() throws {
+//        // Arrange
+//        let tapGesture: UITapGestureRecognizer = try XCTUnwrap(sut.tapGesture, "UITapGestureRecognizer not available")
+////        let newsButton: UIButton = try XCTUnwrap(sut.NewsButton, "News button does not have an outlet")
+//
+//        // Act
+//        let newsButtonActions = try XCTUnwrap(newsButton.actions(forTarget: sut, forControlEvent: .touchUpInside), "News button does not have any action assigned to it")
+//
+//        // Assert
+//        XCTAssertEqual(newsButtonActions.count, 1)
+//        XCTAssertEqual(newsButtonActions.first, "onClick:", "No action with a name onClick assigned to newsButton")
+//    }
     
     func testMainViewController_ClickEnterButtonAndTransition() throws {
         
@@ -47,7 +49,7 @@ class MainViewControllerTests: XCTestCase {
         }
         
         // Act
-        sut.NewsButton.sendActions(for: .touchUpInside)
+        sut.pushViewController()
         
         // Expect
         expectation(for: predicate, evaluatedWith: sut.navigationController)
