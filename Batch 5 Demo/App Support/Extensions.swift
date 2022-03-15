@@ -257,3 +257,11 @@ extension Bundle {
 }
 
 
+extension UIImageView {
+    
+    func addSolidColor(color: UIColor){
+        self.image = self.image?.withRenderingMode(.alwaysTemplate)
+        self.tintColor = color
+    }
+    
+}
