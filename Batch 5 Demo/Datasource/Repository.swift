@@ -8,17 +8,18 @@
 import Foundation
 import Combine
 
+/// General conformation protocol for the Repository pattern CRUD
 protocol Repository {
     associatedtype RepositoryType
 
     func getAll(searchString: String?, completion: @escaping ([RepositoryType]) -> ())
     func get( identifier:Int ) -> RepositoryType?
-    func create( a:RepositoryType ) -> Bool
-    func update( a:RepositoryType ) -> Bool
-    func delete( a:RepositoryType ) -> Bool
-
+    func create( a: RepositoryType ) -> Bool
+    func update( a: RepositoryType ) -> Bool
+    func delete( a: RepositoryType ) -> Bool
 }
 
+/// NewsItem specific repo for the Spaceflight News API
 class NewsItemsRespository: Repository {
     let title = "NewsItemsRespository"
     
@@ -30,9 +31,14 @@ class NewsItemsRespository: Repository {
         var queryItems: [URLQueryItem]?
     }
     
-    //TODO: need to clear this out to prevent memory creep, but the method for doing so is mixed, resolve later
     public var cancellable: AnyCancellable?
     
+    
+    /// Gets all the news items, defaults to 100, for spaceflight newssights.
+    ///
+    /// - Parameters:
+    ///   - searchString: Optional search string used to filter the incoming results to those matching the searchString in the API summary_contains query string param
+    ///   - completion: returns a completion result of [NewsItems], empty if none were found or an error occurred
     public func getAll(searchString: String? = nil, completion: @escaping ([NewsItem]) -> ()) {
         let ftitle = "\(title).getAll"
         let apiClient = APIClient(baseURL: Constants.Network.hostName)
@@ -67,6 +73,9 @@ class NewsItemsRespository: Repository {
             })
     }
     
+    /**
+            Remaining CRUD items are places holders and log a "not implemented" error if called
+     */
     func get(identifier: Int) -> NewsItem? {
         log.error(title: title, "get() not implemented", error: AppError.unknownError)
         return nil

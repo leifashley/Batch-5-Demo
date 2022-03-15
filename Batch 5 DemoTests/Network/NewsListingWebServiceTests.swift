@@ -16,8 +16,9 @@ class NewsListingWebServiceTests: XCTestCase {
         
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [MockURLProtocol.self]
-        let urlSession = URLSession(configuration: config)
-        let io = DispatchQueue(label: "News")
+        
+//        let urlSession = URLSession(configuration: config)
+//        let io = DispatchQueue(label: "News")
         //sut = NewsListingService(session: urlSession, io: io)
         
     }
@@ -38,51 +39,27 @@ class NewsListingWebServiceTests: XCTestCase {
          */
     }
 
-    func testNewsCount() throws {
-        let expectation = expectation(description: "apiNewsCount1")
-        
-        let jsonString = "[{\"id\":14203,\"title\":\"SpaceX to launch AST SpaceMobile’s first space-based cell towers\",\"url\":\"https://www.teslarati.com/spacex-ast-spacemobile-bluebird-launch-contract/\",\"imageUrl\":\"https://www.teslarati.com/wp-content/uploads/2022/03/BlueBird-satellite-AST-SpaceMobile-render-6-crop-c.jpg\",\"newsSite\":\"Teslarati\",\"summary\":\"AST Space Mobile says it has chosen SpaceX to launch its first operational BlueBird satellite after contracting the company to launch BlueWalker...\",\"publishedAt\":\"2022-03-11T12:14:22.000Z\",\"updatedAt\":\"2022-03-11T12:14:30.827Z\",\"featured\":false,\"launches\":[],\"events\":[]}]\""
-        
-        MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
-        
-//        sut.getList(keywords: nil, start: -1, limit: 1, entityType: NewsItem.self) { newsItems in
-//            XCTAssertTrue(newsItems.count == 1, "News count of 1 expectation not met")
-//            print("newsCount")
-//            expectation.fulfill()
-//        }
-        wait(for: [expectation], timeout: 5)
-//        let handle = NewsListService(session: .shared, io: io)
-//            .getListCount { count in
-//                XCTAssertGreaterThan(count, 0)
-//                print("test apiNewsCount =", count)
-//                expectation.fulfill()
-//        }
-        
-    }
+    //TODO: TBD
+//    func testNewsCount() throws {
+//        let expectation = expectation(description: "apiNewsCount1")
+//
+//        let jsonString = "[{\"id\":14203,\"title\":\"SpaceX to launch AST SpaceMobile’s first space-based cell towers\",\"url\":\"https://www.teslarati.com/spacex-ast-spacemobile-bluebird-launch-contract/\",\"imageUrl\":\"https://www.teslarati.com/wp-content/uploads/2022/03/BlueBird-satellite-AST-SpaceMobile-render-6-crop-c.jpg\",\"newsSite\":\"Teslarati\",\"summary\":\"AST Space Mobile says it has chosen SpaceX to launch its first operational BlueBird satellite after contracting the company to launch BlueWalker...\",\"publishedAt\":\"2022-03-11T12:14:22.000Z\",\"updatedAt\":\"2022-03-11T12:14:30.827Z\",\"featured\":false,\"launches\":[],\"events\":[]}]\""
+//
+//        MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
+//
+////        sut.getList(keywords: nil, start: -1, limit: 1, entityType: NewsItem.self) { newsItems in
+////            XCTAssertTrue(newsItems.count == 1, "News count of 1 expectation not met")
+////            print("newsCount")
+////            expectation.fulfill()
+////        }
+//        wait(for: [expectation], timeout: 5)
+////        let handle = NewsListService(session: .shared, io: io)
+////            .getListCount { count in
+////                XCTAssertGreaterThan(count, 0)
+////                print("test apiNewsCount =", count)
+////                expectation.fulfill()
+////        }
+//
+//    }
     
-    func testNewsItemLongMarch() throws {
-        let expectation = expectation(description: "apiNewsItem")
-        let id = 14173
-//        let handle = NewsListItemService().getItem(id: id, placeholder: NewsItem()) { item in
-//            XCTAssertEqual(item.id, id)
-//            expectation.fulfill()
-//            print(item)
-//        }
-        wait(for: [expectation], timeout: 5)
-       // handle?.cancel()
-    }
-    func testNewsListLongMarch() throws {
-        let expectation = expectation(description: "apiNewsItem")
-        let id = 14173
-//        let handle = NewsListingService().getList(keywords: "long", entityType: NewsItem.self) { items in
-//            XCTAssertFalse(items.isEmpty)
-//            print(items)
-//            let filtered = items.map { $0.id }
-//            XCTAssertTrue(filtered.contains { $0 == id})
-//            expectation.fulfill()
-//        }
-        wait(for: [expectation], timeout: 5)
-     
-    }
-
 }

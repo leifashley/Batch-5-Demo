@@ -9,7 +9,10 @@ import UIKit
 class NewsListViewRouter: UISearchListViewRouter {
     func makeListViewController(interactor: UISearchListViewInteractor) -> UIViewController {
         guard let viewController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: UISearchListViewController.storyboardId) as? UISearchListViewController else {
-            fatalError("unexpected view controller type")
+            // Thowing high level fatalErrors here is likely to crash the app, usuually better to log the error, and send back a default
+            //fatalError("unexpected view controller type")
+            log.error(title: "NewsListViewRouter.makeListViewController", "Could not instantiate viewController from storyboard", error: AppError.unknownError)
+            return UIViewController()
         }
         
         let presenter = NewsListViewPresenter()
@@ -22,7 +25,7 @@ class NewsListViewRouter: UISearchListViewRouter {
     
     func makeDetailViewController(model: Any) -> UIViewController? {
         guard let model = model as? NewsItem else {
-            print("Incorrect data model type")
+            log.error(title: "NewsListViewRouter.makeDetailViewController", "Incorrect data model type", error: AppError.unknownError)
             return nil
         }
         

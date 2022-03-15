@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e287ee5-4b8a-4e26-b24d-ae4ef3b37b49" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Batch 5 Demo.xcodeproj/xcuserdata/leifashley.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Batch 5 Demo/Views/Main View/MainViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 Demo/Views/Main View/MainViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Batch 5 DemoTests/Batch_5_DemoTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 DemoTests/Batch_5_DemoTests.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Batch 5 DemoTests/Main/MainViewControllerTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 DemoTests/Main/MainViewControllerTests.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Batch 5 DemoTests/Network/NewsListingWebServiceTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Batch 5 DemoTests/Network/NewsListingWebServiceTests.swift" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647314689113</updated>
       <workItem from="1647314693639" duration="3887000" />
+      <workItem from="1647355186869" duration="2224000" />
     </task>
     <servers />
   </component>
