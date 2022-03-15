@@ -14,7 +14,7 @@ protocol UISearchListViewInteractor {
     func getNewsItems(searchString: String?, completion: @escaping ([NewsItem]) -> ()) 
     
     func assign(router: UISearchListViewRouter)
-    func makeRoute(model: Any) -> UIViewController
+    func makeRoute(model: Any) -> UIViewController?
 }
 
 extension UISearchListViewInteractor {

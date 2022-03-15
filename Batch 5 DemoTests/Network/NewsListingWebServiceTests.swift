@@ -10,7 +10,7 @@ import XCTest
 
 class NewsListingWebServiceTests: XCTestCase {
 
-    var sut: NewsListingService!
+    //var sut: NewsListingService!
 
     override func setUpWithError() throws {
         
@@ -18,7 +18,7 @@ class NewsListingWebServiceTests: XCTestCase {
         config.protocolClasses = [MockURLProtocol.self]
         let urlSession = URLSession(configuration: config)
         let io = DispatchQueue(label: "News")
-        sut = NewsListingService(session: urlSession, io: io)
+        //sut = NewsListingService(session: urlSession, io: io)
         
     }
 
@@ -45,11 +45,11 @@ class NewsListingWebServiceTests: XCTestCase {
         
         MockURLProtocol.stubResponseData = jsonString.data(using: .utf8)
         
-        sut.getList(keywords: nil, start: -1, limit: 1, entityType: NewsItem.self) { newsItems in
-            XCTAssertTrue(newsItems.count == 1, "News count of 1 expectation not met")
-            print("newsCount")
-            expectation.fulfill()
-        }
+//        sut.getList(keywords: nil, start: -1, limit: 1, entityType: NewsItem.self) { newsItems in
+//            XCTAssertTrue(newsItems.count == 1, "News count of 1 expectation not met")
+//            print("newsCount")
+//            expectation.fulfill()
+//        }
         wait(for: [expectation], timeout: 5)
 //        let handle = NewsListService(session: .shared, io: io)
 //            .getListCount { count in
@@ -74,15 +74,15 @@ class NewsListingWebServiceTests: XCTestCase {
     func testNewsListLongMarch() throws {
         let expectation = expectation(description: "apiNewsItem")
         let id = 14173
-        let handle = NewsListingService().getList(keywords: "long", entityType: NewsItem.self) { items in
-            XCTAssertFalse(items.isEmpty)
-            print(items)
-            let filtered = items.map { $0.id }
-            XCTAssertTrue(filtered.contains { $0 == id})
-            expectation.fulfill()
-        }
+//        let handle = NewsListingService().getList(keywords: "long", entityType: NewsItem.self) { items in
+//            XCTAssertFalse(items.isEmpty)
+//            print(items)
+//            let filtered = items.map { $0.id }
+//            XCTAssertTrue(filtered.contains { $0 == id})
+//            expectation.fulfill()
+//        }
         wait(for: [expectation], timeout: 5)
-        handle?.cancel()
+     
     }
 
 }

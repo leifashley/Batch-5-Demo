@@ -12,12 +12,15 @@ class MainViewControllerTests: XCTestCase {
     
     var storyboard: UIStoryboard!
     var sut: MainViewController!
+    var navigationController: UINavigationController!
     
 
     override func setUpWithError() throws {
         storyboard = UIStoryboard(name: "Main", bundle: nil)
         sut = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
         sut.loadViewIfNeeded()
+        navigationController = UINavigationController(rootViewController: sut)
+        
     }
 
     override func tearDownWithError() throws {
@@ -34,7 +37,21 @@ class MainViewControllerTests: XCTestCase {
         // Assert
         XCTAssertEqual(newsButtonActions.count, 1)
         XCTAssertEqual(newsButtonActions.first, "onClick:", "No action with a name onClick assigned to newsButton")
+    }
+    
+    func testMainViewController_ClickEnterButtonAndTransition() throws {
         
+        // Arrange
+        let predicate = NSPredicate {input,_ in
+            return (input as? UINavigationController)?.topViewController is UISearchListViewController
+        }
+        
+        // Act
+        sut.NewsButton.sendActions(for: .touchUpInside)
+        
+        // Expect
+        expectation(for: predicate, evaluatedWith: sut.navigationController)
+        waitForExpectations(timeout: 5)
         
     }
 

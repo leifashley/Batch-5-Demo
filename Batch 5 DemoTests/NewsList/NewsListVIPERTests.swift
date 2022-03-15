@@ -6,30 +6,54 @@
 //
 
 import XCTest
+@testable import Batch_5_Demo
 
 class NewsListVIPERTests: XCTestCase {
 
+    var interactor: NewsListViewInteractor!
+    var sut: UISearchListViewController!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        interactor = NewsListViewInteractor()
+        interactor.setup(repository: NewsItemsRespository())
+        let router = NewsListViewRouter()
+        sut = router.makeListViewController(interactor: interactor) as? UISearchListViewController
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        interactor = nil
+        sut = nil
+        
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testGetNewsLists() throws {
+        // Arrange
+        let expectation = expectation(description: "News lists")
+        
+        // Act
+        interactor.getNewsItems(searchString: nil) { news in
+            if news.count > 0 {
+                expectation.fulfill()
+            }
         }
+        
+        wait(for: [expectation], timeout: 5)
     }
+    
+    func testGetNewsLists_withSearchString() throws {
+        // Arrange
+        let expectation = expectation(description: "News lists")
+        let testString = "new"
+        
+        
+        interactor.getNewsItems(searchString: testString) { news in
+            if news.count > 0 {
+                expectation.fulfill()
+            }
+        }
+        
+        wait(for: [expectation], timeout: 5)
+    }
+
 
 }
