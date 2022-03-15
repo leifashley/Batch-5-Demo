@@ -14,13 +14,12 @@ protocol UISearchListViewInteractor {
     func getNewsItems(searchString: String?, completion: @escaping ([NewsItem]) -> ()) 
     
     func assign(router: UISearchListViewRouter)
-    func makeRoute(model: Any) -> UIViewController
+    func makeRoute(model: Any) -> UIViewController?
 }
 
 extension UISearchListViewInteractor {
     //TODO: impl isn't overriding the extension method, not sure why. Taking this out for now
 //    func getNewsItems(searchString: String? = nil, completion: @escaping ([NewsItem]) -> ()) {
 //        //Making searchString optional
-//        print("ERROR: UISearchListViewInteractor.getNewsItems should have been overridden")
 //    }
 }

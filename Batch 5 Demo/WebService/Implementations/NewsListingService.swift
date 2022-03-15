@@ -45,7 +45,7 @@ import Foundation
 //        decoder.dateDecodingStrategy = .custom(Date.iso8601Adaptive)
 //        
 //        return session.dataTaskPublisher(for: url)
-//            .print("Network.getList")
+
 //        .tryMap { $0.data }
 //        .decode(type: [T].self, decoder: decoder)
 //        .replaceError(with: [])

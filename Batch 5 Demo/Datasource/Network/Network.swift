@@ -23,6 +23,7 @@ enum NetworkRequestError: LocalizedError, Equatable {
 }
 
 struct NetworkDispatcher {
+    let title = "NetworkDispatcher"
     let urlSession: URLSession
     
     public init(urlSession: URLSession = .shared) {
@@ -30,9 +31,10 @@ struct NetworkDispatcher {
     }
     
     func dispatch<ReturnType: Codable>(request: URLRequest) -> AnyPublisher<ReturnType, NetworkRequestError> {
-        print("URL Request: \(request)")
-        print("Return type: \(ReturnType.self)")
-        
+        let ftitle = "\(title).dispatch"
+        log.debug(title: ftitle, "URL Request: \(request)")
+        log.debug(title: ftitle, "Return type: \(ReturnType.self)")
+       
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .custom(Date.iso8601Adaptive)
         
@@ -40,7 +42,7 @@ struct NetworkDispatcher {
 //            .print("DEBUG") //debug tracking
             .tryMap({ data, response in
                 if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
-                    print("Response Error code: \(response.statusCode)")
+                    log.error(title: ftitle, "Response Error code: \(response.statusCode)", error: NetworkRequestError.badRequest)
                     throw httpError(response.statusCode)
                 }
                 
@@ -72,7 +74,7 @@ extension NetworkDispatcher {
     /// - Parameter error: URLSession publisher error
     /// - Returns: Readable NetworkRequestError
     private func handleError(_ error: Error) -> NetworkRequestError {
-        print("ERROR: \(error)")
+        log.error(title: title, "dispatch failure", error: error)
         
         switch error {
         case is Swift.DecodingError:

@@ -18,7 +18,7 @@ class NewsListItemView: UITableViewCell {
     
     private var imageLoadingHandler: AnyCancellable? = nil
     
-    public let defaultImage = UIImage(systemName: "photo") ?? UIImage()
+    public let defaultImage = UIImage(named: "newsIconPlaceHolder")?.withRenderingMode(.alwaysTemplate) ?? UIImage()
     public var imageIcon: UIImage? {
         didSet {
             setImage()
@@ -51,7 +51,7 @@ class NewsListItemView: UITableViewCell {
     func configure(model: NewsItem?) {
         if imageIcon == nil {
             if let imageUrl = model?.imageUrl, let url = URL(string: imageUrl) {
-                print("ImageURL Loading: \(imageUrl)")
+                log.debug("ImageURL Loading: \(imageUrl)")
                 imageLoadingHandler = url.assignWebImage(to: \.imageIcon, on: self)
             }
         } else {
@@ -66,6 +66,8 @@ class NewsListItemView: UITableViewCell {
     func setImage() {
         if imageIcon == nil {
             iconView.image = defaultImage
+            iconView.contentMode = .center
+            iconView.addSolidColor(color: (.splinesColor ?? .red))
         } else {
             iconView.image = imageIcon
         }
