@@ -37,6 +37,7 @@ class NewsListVIPERTests: XCTestCase {
             }
         }
         
+        // Expect
         wait(for: [expectation], timeout: 5)
     }
     
@@ -45,13 +46,14 @@ class NewsListVIPERTests: XCTestCase {
         let expectation = expectation(description: "News lists")
         let testString = "new"
         
-        
+        // Act
         interactor.getNewsItems(searchString: testString) { news in
             if news.count > 0 {
                 expectation.fulfill()
             }
         }
         
+        // Expect
         wait(for: [expectation], timeout: 5)
     }
 

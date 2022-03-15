@@ -20,7 +20,6 @@ class MainViewControllerTests: XCTestCase {
         sut = storyboard.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
         sut.loadViewIfNeeded()
         navigationController = UINavigationController(rootViewController: sut)
-        
     }
 
     override func tearDownWithError() throws {

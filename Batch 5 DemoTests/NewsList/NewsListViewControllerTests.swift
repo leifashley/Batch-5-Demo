@@ -36,10 +36,6 @@ class NewsListViewControllerTests: XCTestCase {
         _ = try XCTUnwrap(sut.searchBar, "The search bar is not connected to IBOutlet")
         _ = try XCTUnwrap(sut.tableView, "The table view is not connected to IBOutlet")
     }
-    
-    func testNewsListVC_ResultsLoaded() {
-        
-    }
 
     
     

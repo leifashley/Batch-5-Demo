@@ -40,7 +40,6 @@
 		9356240627D6951F00714EA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9356240427D6951F00714EA0 /* Main.storyboard */; };
 		9356240827D6952200714EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9356240727D6952200714EA0 /* Assets.xcassets */; };
 		9356240B27D6952200714EA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9356240927D6952200714EA0 /* LaunchScreen.storyboard */; };
-		9356241627D6952200714EA0 /* Batch_5_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356241527D6952200714EA0 /* Batch_5_DemoTests.swift */; };
 		9356242027D6952200714EA0 /* Batch_5_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356241F27D6952200714EA0 /* Batch_5_DemoUITests.swift */; };
 		9356242227D6952200714EA0 /* Batch_5_DemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356242127D6952200714EA0 /* Batch_5_DemoUITestsLaunchTests.swift */; };
 		9356243327D6959B00714EA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9356243127D6959B00714EA0 /* Constants.swift */; };
@@ -112,7 +111,6 @@
 		9356240A27D6952200714EA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9356240C27D6952200714EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9356241127D6952200714EA0 /* Batch 5 DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Batch 5 DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9356241527D6952200714EA0 /* Batch_5_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batch_5_DemoTests.swift; sourceTree = "<group>"; };
 		9356241B27D6952200714EA0 /* Batch 5 DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Batch 5 DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9356241F27D6952200714EA0 /* Batch_5_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batch_5_DemoUITests.swift; sourceTree = "<group>"; };
 		9356242127D6952200714EA0 /* Batch_5_DemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batch_5_DemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 		9356241427D6952200714EA0 /* Batch 5 DemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				9356241527D6952200714EA0 /* Batch_5_DemoTests.swift */,
 				541EBE6327DBD60C0002966A /* Main */,
 				54FF84E827DBC1CC00BBB1F7 /* Mock */,
 				54FF84EB27DBC21100BBB1F7 /* Network */,
@@ -581,7 +578,6 @@
 				54FF84ED27DBC46800BBB1F7 /* NewsListVIPERTests.swift in Sources */,
 				541EBE6227DBCE170002966A /* NewsListDetailViewTests.swift in Sources */,
 				54FF84F327DBC98800BBB1F7 /* NewsListViewControllerTests.swift in Sources */,
-				9356241627D6952200714EA0 /* Batch_5_DemoTests.swift in Sources */,
 				54BA5CD527DFCD3C00953B84 /* NewsListItemTests.swift in Sources */,
 				54FF84E727DBB94800BBB1F7 /* MockURLProtocol.swift in Sources */,
 				541EBE6527DBD6430002966A /* MainViewControllerTests.swift in Sources */,
