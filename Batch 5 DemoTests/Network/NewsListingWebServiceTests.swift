@@ -85,4 +85,19 @@ class NewsListingWebServiceTests: XCTestCase {
      
     }
 
+    var imageIcon: UIImage? = nil
+    func testURLImage() throws {
+        let expectation = expectation(description: "URLImage")
+        let queue = DispatchQueue(label: "URLImage")
+        let handle = URL(string: "https://www.swift.org/favicon.ico")?.assignWebImage(to: \.imageIcon, on: self)
+        XCTAssertNotNil(handle)
+        queue.asyncAfter(deadline: .now() + 2.0) {
+            DispatchQueue.main.async {
+                XCTAssertNotNil(self.imageIcon)
+                expectation.fulfill()
+            }
+        }
+        wait(for: [expectation], timeout: 5)
+        handle?.cancel()
+    }
 }
