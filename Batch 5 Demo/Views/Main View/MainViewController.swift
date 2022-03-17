@@ -10,13 +10,17 @@ import UIKit
 class MainViewController: UIViewController {
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var NewsButton: UIButton!
-    
+
+    var tapGesture: UITapGestureRecognizer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Application-Title".localized()
         
-        mainView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        tapGesture = gesture
+        mainView.addGestureRecognizer(gesture)
     }
 
     @IBAction func onClick(_ sender: UIButton) {

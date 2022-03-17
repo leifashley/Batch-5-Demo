@@ -14,14 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setAppearance()
-        
-        //TODO: think the list view is better landing view, but holding off a bit on it.
-//        let interactor = NewsListViewInteractor()
-//        interactor.setup(service: NewsListingService())
-//        let router = NewsListViewRouter()
-//        let viewController = router.makeListViewController(interactor: interactor)
-//        navigationController?.pushViewController(viewController, animated: true)
-        
+
         return true
     }
     
